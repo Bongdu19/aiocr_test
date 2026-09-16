@@ -28,6 +28,7 @@ function initElements() {
   els.sampleBtn3 = getEl("sampleBtn3");
   els.sampleBtn4 = getEl("sampleBtn4");
   els.sampleSelect = getEl("sampleSelect");
+  els.customSampleOption = getEl("customSampleOption");
   els.clearBtn = getEl("clearBtn");
   els.lookupJobId = getEl("lookupJobId");
   els.lookupBtn = getEl("lookupBtn");
@@ -1143,6 +1144,22 @@ function downloadJsonFile() {
   URL.revokeObjectURL(url);
 }
 
+function updateCustomSampleOptionUI() {
+  var savedCustom = localStorage.getItem("myCustomSample");
+  var opt = els.customSampleOption || getEl("customSampleOption");
+  if (!opt) return;
+
+  if (savedCustom) {
+    opt.style.display = "";
+    opt.disabled = false;
+    opt.hidden = false;
+  } else {
+    opt.style.display = "none";
+    opt.disabled = true;
+    opt.hidden = true;
+  }
+}
+
 function setAsCustomSample() {
   if (!currentRawPayload) {
     alert("샘플로 지정할 결과가 없습니다.");
@@ -1150,7 +1167,12 @@ function setAsCustomSample() {
   }
   try {
     localStorage.setItem("myCustomSample", JSON.stringify(currentRawPayload));
-    alert("⭐ 현재 결과가 내 커스텀 샘플로 지정되었습니다!\n앞으로 '👁️ 샘플 보기' 버튼을 누르면 이 결과가 표시됩니다.");
+    updateCustomSampleOptionUI();
+    if (els.sampleSelect) {
+      els.sampleSelect.value = "5";
+    }
+    fillSample(5);
+    alert("⭐ 현재 결과가 내 커스텀 샘플로 지정되었습니다!\n드롭다운 5번에 '5️⃣ ⭐ 내 지정 커스텀 샘플'이 활성화되었습니다.");
   } catch (e) {
     alert("저장 실패: " + e.message);
   }
@@ -1167,7 +1189,7 @@ function runWorkflow() {
   }
 
   if (!selectedFile) {
-    if (sampleVal >= 1 && sampleVal <= 4) {
+    if (sampleVal >= 1 && sampleVal <= 5) {
       fillSample(sampleVal);
       return;
     }
@@ -1246,7 +1268,7 @@ function runWorkflow() {
 
 function fillSample(sampleIndex) {
   var idx = sampleIndex || 1;
-  var fileName = "sample.json";
+  var fileName = "sample1.json";
   var sampleTitle = "실제샘플1";
 
   selectedFile = null;
@@ -1255,7 +1277,35 @@ function fillSample(sampleIndex) {
     els.sampleSelect.value = String(idx);
   }
 
-  if (idx === 2) {
+  if (idx === 5) {
+    var savedCustom = localStorage.getItem("myCustomSample");
+    if (!savedCustom) {
+      alert("지정된 커스텀 샘플이 없습니다. 먼저 결과를 '★ 내 결과 샘플로 지정' 버튼으로 저장해 주세요.");
+      return;
+    }
+    try {
+      var customJob = JSON.parse(savedCustom);
+      var customRawText = extractResultText(customJob);
+      var customParsed = parseResultText(customRawText);
+      renderResult(customParsed, customJob);
+      if (els.lookupJobId && customJob.id) {
+        els.lookupJobId.value = customJob.id;
+      }
+      if (els.fileInfo) {
+        els.fileInfo.innerHTML = "<strong>[샘플선택] ⭐ 내 지정 커스텀 샘플</strong> <span class=\"meta-text\">(저장됨)</span>";
+      }
+      setStatus("커스텀 샘플 결과 표시 중", "job_id=" + (customJob.id || "custom"));
+      return;
+    } catch (e) {
+      alert("커스텀 샘플 파싱 실패: " + e.message);
+      return;
+    }
+  }
+
+  if (idx === 1) {
+    fileName = "sample1.json";
+    sampleTitle = "실제샘플1";
+  } else if (idx === 2) {
     fileName = "sample2.json";
     sampleTitle = "실제샘플2";
   } else if (idx === 3) {
@@ -1268,34 +1318,6 @@ function fillSample(sampleIndex) {
 
   if (els.fileInfo) {
     els.fileInfo.innerHTML = "<strong>[샘플선택] " + escapeHtml(sampleTitle) + "</strong> <span class=\"meta-text\">(" + escapeHtml(fileName) + ")</span>";
-  }
-
-  if (idx === 1) {
-    var savedCustom = localStorage.getItem("myCustomSample");
-    var sampleJob = null;
-
-    if (savedCustom) {
-      try {
-        sampleJob = JSON.parse(savedCustom);
-      } catch (e) {
-        sampleJob = null;
-      }
-    }
-
-    if (sampleJob) {
-      try {
-        var customRawText = extractResultText(sampleJob);
-        var customParsed = parseResultText(customRawText);
-        renderResult(customParsed, sampleJob);
-        if (els.lookupJobId && sampleJob.id) {
-          els.lookupJobId.value = sampleJob.id;
-        }
-        setStatus("커스텀 샘플 결과 표시 중", "job_id=" + (sampleJob.id || "custom"));
-        return;
-      } catch (e) {
-        console.warn("커스텀 샘플 파싱 실패, 기본 sample.json 로드:", e);
-      }
-    }
   }
 
   setStatus(sampleTitle + " 로딩 중...", fileName);
@@ -1433,16 +1455,18 @@ function init() {
   loadConfig()
     .then(function () {
       bindFileEvents();
+      updateCustomSampleOptionUI();
       els.runBtn.addEventListener("click", runWorkflow);
       if (els.sampleBtn) els.sampleBtn.addEventListener("click", function () { fillSample(1); });
       if (els.sampleBtn1) els.sampleBtn1.addEventListener("click", function () { fillSample(1); });
       if (els.sampleBtn2) els.sampleBtn2.addEventListener("click", function () { fillSample(2); });
       if (els.sampleBtn3) els.sampleBtn3.addEventListener("click", function () { fillSample(3); });
       if (els.sampleBtn4) els.sampleBtn4.addEventListener("click", function () { fillSample(4); });
+      if (els.sampleBtn5) els.sampleBtn5.addEventListener("click", function () { fillSample(5); });
       if (els.sampleSelect) {
         els.sampleSelect.addEventListener("change", function (e) {
           var val = parseInt(e.target.value, 10);
-          if (val >= 1 && val <= 4) {
+          if (val >= 1 && val <= 5) {
             fillSample(val);
           }
         });
