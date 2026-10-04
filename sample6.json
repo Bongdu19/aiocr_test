@@ -1,0 +1,1784 @@
+{
+  "job_id": "job_mock_hyundai_rotem_arrival_docs_001",
+  "status": "completed",
+  "workflow_id": "agt_hYy33EbPU93zggAb6W9z3G",
+  "file_name": "현대로템도착서류(150518)-5.pdf",
+  "include": ["all"],
+  "steps": [
+    {
+      "step_name": "parse",
+      "step_type": "parse",
+      "status": "completed",
+      "result": {
+        "documents": [
+          {
+            "document_index": 0,
+            "text": "Mock parse text omitted for frontend development."
+          }
+        ]
+      }
+    },
+    {
+      "step_name": "classify",
+      "step_type": "classify",
+      "status": "completed",
+      "result": {
+        "documents": [
+          { "document_index": 0, "category": "lc" },
+          { "document_index": 1, "category": "commercial_invoice" },
+          { "document_index": 2, "category": "bill_of_lading" },
+          { "document_index": 3, "category": "packing_list" },
+          { "document_index": 4, "category": "marine_cargo_insurance" },
+          { "document_index": 5, "category": "certificate_of_origin" }
+        ]
+      }
+    },
+    {
+      "step_name": "extract",
+      "step_type": "extract",
+      "status": "completed",
+      "result": {
+        "documents": [
+          {
+            "document_index": 0,
+            "document_type": "lc",
+            "schema_name": "lc_schema",
+            "data": {
+              "document_type": "신용장 L/C",
+              "lc_number": "LC-ROTEM-2015-0518",
+              "reference_number": "",
+              "po_number": "PO-ROTEM-7781",
+              "applicant_name": "HYUNDAI ROTEM COMPANY",
+              "beneficiary_name": "ABC GLOBAL TRADING CO., LTD.",
+              "credit_amount": 125000.0,
+              "currency_code": "USD",
+              "expiry_date": "2015-06-30",
+              "latest_shipment_date": "2015-05-20",
+              "tolerance_text": "",
+              "tolerance_percent_plus": 0,
+              "tolerance_percent_minus": 0,
+              "partial_shipment_allowed": false,
+              "transshipment_allowed": false,
+              "payment_terms": "L/C at sight",
+              "goods_summary": "RAILWAY PARTS AND COMPONENTS",
+              "required_documents": [
+                {
+                  "document_name": "Commercial Invoice",
+                  "document_requirement_text": "Signed commercial invoice in 3 originals"
+                },
+                {
+                  "document_name": "Packing List",
+                  "document_requirement_text": "Packing list in 3 copies"
+                },
+                {
+                  "document_name": "Bill of Lading",
+                  "document_requirement_text": "Full set of clean on board bills of lading"
+                },
+                {
+                  "document_name": "Insurance Certificate",
+                  "document_requirement_text": "Insurance certificate covering 110 percent of invoice value"
+                },
+                {
+                  "document_name": "Certificate of Origin",
+                  "document_requirement_text": "Certificate of origin issued by competent authority"
+                }
+              ]
+            },
+            "additional_values": {
+              "lc_number": {
+                "value": "LC-ROTEM-2015-0518",
+                "confidence": 0.97,
+                "locations": [
+                  { "page": 1, "bbox": [410, 120, 560, 142] }
+                ]
+              },
+              "po_number": {
+                "value": "PO-ROTEM-7781",
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 1, "bbox": [410, 150, 530, 172] }
+                ]
+              },
+              "applicant_name": {
+                "value": "HYUNDAI ROTEM COMPANY",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 1, "bbox": [90, 220, 300, 242] }
+                ]
+              },
+              "beneficiary_name": {
+                "value": "ABC GLOBAL TRADING CO., LTD.",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 1, "bbox": [90, 255, 330, 277] }
+                ]
+              },
+              "credit_amount": {
+                "value": 125000.0,
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 1, "bbox": [420, 220, 520, 242] }
+                ]
+              },
+              "currency_code": {
+                "value": "USD",
+                "confidence": 0.98,
+                "locations": [
+                  { "page": 1, "bbox": [380, 220, 410, 242] }
+                ]
+              },
+              "expiry_date": {
+                "value": "2015-06-30",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 1, "bbox": [420, 300, 520, 322] }
+                ]
+              },
+              "latest_shipment_date": {
+                "value": "2015-05-20",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 1, "bbox": [420, 330, 520, 352] }
+                ]
+              },
+              "payment_terms": {
+                "value": "L/C at sight",
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 1, "bbox": [100, 360, 220, 382] }
+                ]
+              },
+              "goods_summary": {
+                "value": "RAILWAY PARTS AND COMPONENTS",
+                "confidence": 0.90,
+                "locations": [
+                  { "page": 2, "bbox": [100, 180, 340, 205] }
+                ]
+              },
+              "required_documents.document_name": [
+                {
+                  "row_index": 0,
+                  "value": "Commercial Invoice",
+                  "confidence": 0.92,
+                  "locations": [
+                    { "page": 2, "bbox": [100, 420, 250, 440] }
+                  ]
+                },
+                {
+                  "row_index": 1,
+                  "value": "Packing List",
+                  "confidence": 0.91,
+                  "locations": [
+                    { "page": 2, "bbox": [100, 445, 220, 465] }
+                  ]
+                },
+                {
+                  "row_index": 2,
+                  "value": "Bill of Lading",
+                  "confidence": 0.91,
+                  "locations": [
+                    { "page": 2, "bbox": [100, 470, 230, 490] }
+                  ]
+                },
+                {
+                  "row_index": 3,
+                  "value": "Insurance Certificate",
+                  "confidence": 0.90,
+                  "locations": [
+                    { "page": 2, "bbox": [100, 495, 260, 515] }
+                  ]
+                },
+                {
+                  "row_index": 4,
+                  "value": "Certificate of Origin",
+                  "confidence": 0.90,
+                  "locations": [
+                    { "page": 2, "bbox": [100, 520, 270, 540] }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "document_index": 1,
+            "document_type": "commercial_invoice",
+            "schema_name": "commercial_invoice_schema",
+            "data": {
+              "document_type": "상업송장",
+              "invoice_number": "INV-20150518-01",
+              "reference_number": "",
+              "po_number": "PO-ROTEM-7781",
+              "lc_number": "LC-ROTEM-2015-0518",
+              "seller_name": "ABC GLOBAL TRADING CO., LTD.",
+              "buyer_name": "HYUNDAI ROTEM COMPANY",
+              "invoice_date": "2015-05-18",
+              "currency_code": "USD",
+              "total_amount": 125000.0,
+              "port_of_loading": "BUSAN",
+              "port_of_discharge": "MERSIN",
+              "payment_terms": "L/C at sight",
+              "line_items": [
+                {
+                  "product_name": "RAILWAY PARTS AND COMPONENTS",
+                  "quantity": 100,
+                  "unit_price": 1250.0,
+                  "line_amount": 125000.0
+                }
+              ]
+            },
+            "additional_values": {
+              "invoice_number": {
+                "value": "INV-20150518-01",
+                "confidence": 0.98,
+                "locations": [
+                  { "page": 3, "bbox": [420, 120, 560, 142] }
+                ]
+              },
+              "po_number": {
+                "value": "PO-ROTEM-7781",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 3, "bbox": [420, 150, 530, 172] }
+                ]
+              },
+              "lc_number": {
+                "value": "LC-ROTEM-2015-0518",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 3, "bbox": [420, 180, 560, 202] }
+                ]
+              },
+              "seller_name": {
+                "value": "ABC GLOBAL TRADING CO., LTD.",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 3, "bbox": [90, 220, 330, 242] }
+                ]
+              },
+              "buyer_name": {
+                "value": "HYUNDAI ROTEM COMPANY",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 3, "bbox": [90, 255, 300, 277] }
+                ]
+              },
+              "invoice_date": {
+                "value": "2015-05-18",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 3, "bbox": [420, 210, 520, 232] }
+                ]
+              },
+              "currency_code": {
+                "value": "USD",
+                "confidence": 0.98,
+                "locations": [
+                  { "page": 3, "bbox": [380, 300, 410, 322] }
+                ]
+              },
+              "total_amount": {
+                "value": 125000.0,
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 3, "bbox": [420, 300, 530, 322] }
+                ]
+              },
+              "port_of_loading": {
+                "value": "BUSAN",
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 3, "bbox": [100, 340, 180, 360] }
+                ]
+              },
+              "port_of_discharge": {
+                "value": "MERSIN",
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 3, "bbox": [240, 340, 320, 360] }
+                ]
+              },
+              "payment_terms": {
+                "value": "L/C at sight",
+                "confidence": 0.90,
+                "locations": [
+                  { "page": 3, "bbox": [100, 370, 220, 390] }
+                ]
+              },
+              "line_items.product_name": [
+                {
+                  "row_index": 0,
+                  "value": "RAILWAY PARTS AND COMPONENTS",
+                  "confidence": 0.93,
+                  "locations": [
+                    { "page": 3, "bbox": [100, 430, 340, 452] }
+                  ]
+                }
+              ],
+              "line_items.quantity": [
+                {
+                  "row_index": 0,
+                  "value": 100,
+                  "confidence": 0.94,
+                  "locations": [
+                    { "page": 3, "bbox": [360, 430, 400, 452] }
+                  ]
+                }
+              ],
+              "line_items.unit_price": [
+                {
+                  "row_index": 0,
+                  "value": 1250.0,
+                  "confidence": 0.94,
+                  "locations": [
+                    { "page": 3, "bbox": [420, 430, 490, 452] }
+                  ]
+                }
+              ],
+              "line_items.line_amount": [
+                {
+                  "row_index": 0,
+                  "value": 125000.0,
+                  "confidence": 0.95,
+                  "locations": [
+                    { "page": 3, "bbox": [500, 430, 590, 452] }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "document_index": 2,
+            "document_type": "bill_of_lading",
+            "schema_name": "bill_of_lading_schema",
+            "data": {
+              "document_type": "선하증권",
+              "bl_number": "BL-20150518-77",
+              "reference_number": "",
+              "po_number": "PO-ROTEM-7781",
+              "lc_number": "LC-ROTEM-2015-0518",
+              "shipper_name": "ABC GLOBAL TRADING CO., LTD.",
+              "consignee_name": "TO ORDER OF WOORI BANK",
+              "vessel_name": "MV EASTERN STAR",
+              "port_of_loading": "BUSAN",
+              "port_of_discharge": "MERSIN",
+              "shipment_date": "2015-05-19",
+              "on_board_date": "2015-05-19",
+              "total_measurement_cbm": 18.5,
+              "freight_terms": "PREPAID",
+              "cargo_details": [
+                {
+                  "cargo_description": "RAILWAY PARTS AND COMPONENTS",
+                  "package_count": 10,
+                  "gross_weight": 8200,
+                  "measurement_cbm": 18.5
+                }
+              ]
+            },
+            "additional_values": {
+              "bl_number": {
+                "value": "BL-20150518-77",
+                "confidence": 0.97,
+                "locations": [
+                  { "page": 4, "bbox": [420, 120, 560, 142] }
+                ]
+              },
+              "po_number": {
+                "value": "PO-ROTEM-7781",
+                "confidence": 0.92,
+                "locations": [
+                  { "page": 4, "bbox": [420, 150, 530, 172] }
+                ]
+              },
+              "lc_number": {
+                "value": "LC-ROTEM-2015-0518",
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 4, "bbox": [420, 180, 560, 202] }
+                ]
+              },
+              "shipper_name": {
+                "value": "ABC GLOBAL TRADING CO., LTD.",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 4, "bbox": [90, 220, 330, 242] }
+                ]
+              },
+              "consignee_name": {
+                "value": "TO ORDER OF WOORI BANK",
+                "confidence": 0.92,
+                "locations": [
+                  { "page": 4, "bbox": [90, 255, 310, 277] }
+                ]
+              },
+              "vessel_name": {
+                "value": "MV EASTERN STAR",
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 4, "bbox": [100, 300, 240, 320] }
+                ]
+              },
+              "port_of_loading": {
+                "value": "BUSAN",
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 4, "bbox": [100, 330, 180, 350] }
+                ]
+              },
+              "port_of_discharge": {
+                "value": "MERSIN",
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 4, "bbox": [240, 330, 320, 350] }
+                ]
+              },
+              "shipment_date": {
+                "value": "2015-05-19",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 4, "bbox": [420, 260, 520, 282] }
+                ]
+              },
+              "on_board_date": {
+                "value": "2015-05-19",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 4, "bbox": [420, 290, 520, 312] }
+                ]
+              },
+              "total_measurement_cbm": {
+                "value": 18.5,
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 4, "bbox": [430, 360, 500, 382] }
+                ]
+              },
+              "freight_terms": {
+                "value": "PREPAID",
+                "confidence": 0.90,
+                "locations": [
+                  { "page": 4, "bbox": [430, 390, 520, 412] }
+                ]
+              },
+              "cargo_details.cargo_description": [
+                {
+                  "row_index": 0,
+                  "value": "RAILWAY PARTS AND COMPONENTS",
+                  "confidence": 0.92,
+                  "locations": [
+                    { "page": 4, "bbox": [100, 430, 340, 452] }
+                  ]
+                }
+              ],
+              "cargo_details.package_count": [
+                {
+                  "row_index": 0,
+                  "value": 10,
+                  "confidence": 0.91,
+                  "locations": [
+                    { "page": 4, "bbox": [360, 430, 400, 452] }
+                  ]
+                }
+              ],
+              "cargo_details.gross_weight": [
+                {
+                  "row_index": 0,
+                  "value": 8200,
+                  "confidence": 0.91,
+                  "locations": [
+                    { "page": 4, "bbox": [420, 430, 490, 452] }
+                  ]
+                }
+              ],
+              "cargo_details.measurement_cbm": [
+                {
+                  "row_index": 0,
+                  "value": 18.5,
+                  "confidence": 0.90,
+                  "locations": [
+                    { "page": 4, "bbox": [510, 430, 570, 452] }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "document_index": 3,
+            "document_type": "packing_list",
+            "schema_name": "packing_list_schema",
+            "data": {
+              "document_type": "패킹리스트",
+              "packing_list_number": "PL-20150518-01",
+              "reference_number": "",
+              "po_number": "PO-ROTEM-7781",
+              "lc_number": "LC-ROTEM-2015-0518",
+              "seller_name": "ABC GLOBAL TRADING CO., LTD.",
+              "buyer_name": "HYUNDAI ROTEM COMPANY",
+              "packing_list_date": "2015-05-18",
+              "total_package_count": 10,
+              "total_net_weight": 7900,
+              "total_gross_weight": 8200,
+              "total_measurement_cbm": 18.5,
+              "port_of_loading": "BUSAN",
+              "port_of_discharge": "MERSIN",
+              "payment_terms": "L/C at sight",
+              "line_items": [
+                {
+                  "product_name": "RAILWAY PARTS AND COMPONENTS",
+                  "quantity": 100,
+                  "package_count": 10,
+                  "net_weight": 7900,
+                  "gross_weight": 8200,
+                  "measurement_cbm": 18.5
+                }
+              ]
+            },
+            "additional_values": {
+              "packing_list_number": {
+                "value": "PL-20150518-01",
+                "confidence": 0.97,
+                "locations": [
+                  { "page": 5, "bbox": [420, 120, 550, 142] }
+                ]
+              },
+              "po_number": {
+                "value": "PO-ROTEM-7781",
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 5, "bbox": [420, 150, 530, 172] }
+                ]
+              },
+              "lc_number": {
+                "value": "LC-ROTEM-2015-0518",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 5, "bbox": [420, 180, 560, 202] }
+                ]
+              },
+              "seller_name": {
+                "value": "ABC GLOBAL TRADING CO., LTD.",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 5, "bbox": [90, 220, 330, 242] }
+                ]
+              },
+              "buyer_name": {
+                "value": "HYUNDAI ROTEM COMPANY",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 5, "bbox": [90, 255, 300, 277] }
+                ]
+              },
+              "packing_list_date": {
+                "value": "2015-05-18",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 5, "bbox": [420, 210, 520, 232] }
+                ]
+              },
+              "total_package_count": {
+                "value": 10,
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 5, "bbox": [420, 300, 470, 322] }
+                ]
+              },
+              "total_net_weight": {
+                "value": 7900,
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 5, "bbox": [420, 330, 500, 352] }
+                ]
+              },
+              "total_gross_weight": {
+                "value": 8200,
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 5, "bbox": [420, 360, 500, 382] }
+                ]
+              },
+              "total_measurement_cbm": {
+                "value": 18.5,
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 5, "bbox": [420, 390, 500, 412] }
+                ]
+              },
+              "port_of_loading": {
+                "value": "BUSAN",
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 5, "bbox": [100, 330, 180, 350] }
+                ]
+              },
+              "port_of_discharge": {
+                "value": "MERSIN",
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 5, "bbox": [240, 330, 320, 350] }
+                ]
+              },
+              "line_items.product_name": [
+                {
+                  "row_index": 0,
+                  "value": "RAILWAY PARTS AND COMPONENTS",
+                  "confidence": 0.92,
+                  "locations": [
+                    { "page": 5, "bbox": [100, 430, 340, 452] }
+                  ]
+                }
+              ],
+              "line_items.quantity": [
+                {
+                  "row_index": 0,
+                  "value": 100,
+                  "confidence": 0.92,
+                  "locations": [
+                    { "page": 5, "bbox": [360, 430, 400, 452] }
+                  ]
+                }
+              ],
+              "line_items.package_count": [
+                {
+                  "row_index": 0,
+                  "value": 10,
+                  "confidence": 0.92,
+                  "locations": [
+                    { "page": 5, "bbox": [420, 430, 460, 452] }
+                  ]
+                }
+              ],
+              "line_items.net_weight": [
+                {
+                  "row_index": 0,
+                  "value": 7900,
+                  "confidence": 0.92,
+                  "locations": [
+                    { "page": 5, "bbox": [470, 430, 540, 452] }
+                  ]
+                }
+              ],
+              "line_items.gross_weight": [
+                {
+                  "row_index": 0,
+                  "value": 8200,
+                  "confidence": 0.92,
+                  "locations": [
+                    { "page": 5, "bbox": [550, 430, 620, 452] }
+                  ]
+                }
+              ],
+              "line_items.measurement_cbm": [
+                {
+                  "row_index": 0,
+                  "value": 18.5,
+                  "confidence": 0.91,
+                  "locations": [
+                    { "page": 5, "bbox": [630, 430, 690, 452] }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "document_index": 4,
+            "document_type": "marine_cargo_insurance",
+            "schema_name": "marine_cargo_insurance_schema",
+            "data": {
+              "document_type": "해상적하보험증권",
+              "policy_certificate_number": "INS-20150518-09",
+              "policy_issue_date": "2015-05-18",
+              "insured_beneficiary_name": "HYUNDAI ROTEM COMPANY",
+              "lc_number": "LC-ROTEM-2015-0518",
+              "invoice_number": "INV-20150518-01",
+              "vessel_name": "MV EASTERN STAR",
+              "voyage_number": "VOY-0519",
+              "port_of_loading": "BUSAN",
+              "port_of_discharge": "MERSIN",
+              "insured_amount": 137500.0,
+              "currency_code": "USD",
+              "coverage_clauses_text": "Institute Cargo Clauses (A)",
+              "claim_payable_text": "Claim payable at destination",
+              "package_count": 10,
+              "insured_goods_summary": "RAILWAY PARTS AND COMPONENTS",
+              "marks_numbers": ""
+            },
+            "additional_values": {
+              "policy_certificate_number": {
+                "value": "INS-20150518-09",
+                "confidence": 0.96,
+                "locations": [
+                  { "page": 6, "bbox": [420, 120, 560, 142] }
+                ]
+              },
+              "policy_issue_date": {
+                "value": "2015-05-18",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 6, "bbox": [420, 150, 520, 172] }
+                ]
+              },
+              "insured_beneficiary_name": {
+                "value": "HYUNDAI ROTEM COMPANY",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 6, "bbox": [90, 220, 300, 242] }
+                ]
+              },
+              "lc_number": {
+                "value": "LC-ROTEM-2015-0518",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 6, "bbox": [420, 180, 560, 202] }
+                ]
+              },
+              "invoice_number": {
+                "value": "INV-20150518-01",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 6, "bbox": [420, 210, 550, 232] }
+                ]
+              },
+              "vessel_name": {
+                "value": "MV EASTERN STAR",
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 6, "bbox": [100, 300, 240, 320] }
+                ]
+              },
+              "voyage_number": {
+                "value": "VOY-0519",
+                "confidence": 0.90,
+                "locations": [
+                  { "page": 6, "bbox": [260, 300, 340, 320] }
+                ]
+              },
+              "port_of_loading": {
+                "value": "BUSAN",
+                "confidence": 0.92,
+                "locations": [
+                  { "page": 6, "bbox": [100, 330, 180, 350] }
+                ]
+              },
+              "port_of_discharge": {
+                "value": "MERSIN",
+                "confidence": 0.92,
+                "locations": [
+                  { "page": 6, "bbox": [240, 330, 320, 350] }
+                ]
+              },
+              "insured_amount": {
+                "value": 137500.0,
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 6, "bbox": [420, 360, 530, 382] }
+                ]
+              },
+              "currency_code": {
+                "value": "USD",
+                "confidence": 0.98,
+                "locations": [
+                  { "page": 6, "bbox": [380, 360, 410, 382] }
+                ]
+              },
+              "package_count": {
+                "value": 10,
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 6, "bbox": [420, 390, 470, 412] }
+                ]
+              },
+              "insured_goods_summary": {
+                "value": "RAILWAY PARTS AND COMPONENTS",
+                "confidence": 0.90,
+                "locations": [
+                  { "page": 6, "bbox": [100, 420, 340, 442] }
+                ]
+              }
+            }
+          },
+          {
+            "document_index": 5,
+            "document_type": "certificate_of_origin",
+            "schema_name": "certificate_of_origin_schema",
+            "data": {
+              "document_type": "원산지증명서",
+              "certificate_number": "COO-20150518-03",
+              "reference_number": "",
+              "po_number": "PO-ROTEM-7781",
+              "lc_number": "LC-ROTEM-2015-0518",
+              "exporter_name": "ABC GLOBAL TRADING CO., LTD.",
+              "importer_name": "HYUNDAI ROTEM COMPANY",
+              "country_of_origin": "KOREA",
+              "invoice_number": "INV-20150518-01",
+              "invoice_date": "2015-05-18",
+              "goods_summary": "RAILWAY PARTS AND COMPONENTS"
+            },
+            "additional_values": {
+              "certificate_number": {
+                "value": "COO-20150518-03",
+                "confidence": 0.96,
+                "locations": [
+                  { "page": 7, "bbox": [420, 120, 560, 142] }
+                ]
+              },
+              "po_number": {
+                "value": "PO-ROTEM-7781",
+                "confidence": 0.92,
+                "locations": [
+                  { "page": 7, "bbox": [420, 150, 530, 172] }
+                ]
+              },
+              "lc_number": {
+                "value": "LC-ROTEM-2015-0518",
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 7, "bbox": [420, 180, 560, 202] }
+                ]
+              },
+              "exporter_name": {
+                "value": "ABC GLOBAL TRADING CO., LTD.",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 7, "bbox": [90, 220, 330, 242] }
+                ]
+              },
+              "importer_name": {
+                "value": "HYUNDAI ROTEM COMPANY",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 7, "bbox": [90, 255, 300, 277] }
+                ]
+              },
+              "country_of_origin": {
+                "value": "KOREA",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 7, "bbox": [420, 300, 500, 322] }
+                ]
+              },
+              "invoice_number": {
+                "value": "INV-20150518-01",
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 7, "bbox": [420, 330, 550, 352] }
+                ]
+              },
+              "invoice_date": {
+                "value": "2015-05-18",
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 7, "bbox": [420, 360, 520, 382] }
+                ]
+              },
+              "goods_summary": {
+                "value": "RAILWAY PARTS AND COMPONENTS",
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 7, "bbox": [100, 420, 340, 442] }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "step_name": "final_trade_document_set_review_api_v1",
+      "step_type": "instruct",
+      "status": "completed",
+      "result": {
+        "structured_result": {
+          "overall_status": "review_required",
+          "overall_alert_level": "warning",
+          "one_line_summary": "현대로템 도착서류 세트는 전반적으로 연결되지만 일부 항목은 추가 검토가 필요합니다.",
+          "recommended_action": "B/L 수하인 표기와 보험 부보금액 충족 여부를 우선 확인하고, 핵심 식별번호와 선적일 흐름을 함께 검토하십시오.",
+          "document_presence": {
+            "lc": true,
+            "commercial_invoice": true,
+            "bill_of_lading": true,
+            "packing_list": true,
+            "marine_cargo_insurance": true,
+            "certificate_of_origin": true
+          },
+          "document_keys": {
+            "lc_number": "LC-ROTEM-2015-0518",
+            "invoice_number": "INV-20150518-01",
+            "bl_number": "BL-20150518-77",
+            "policy_certificate_number": "INS-20150518-09",
+            "certificate_number": "COO-20150518-03"
+          },
+          "date_checks": {
+            "insurance_policy_issue_date": "2015-05-18",
+            "invoice_date": "2015-05-18",
+            "packing_list_date": "2015-05-18",
+            "bl_shipment_date": "2015-05-19",
+            "bl_on_board_date": "2015-05-19",
+            "latest_shipment_date": "2015-05-20",
+            "lc_issue_date": "",
+            "certificate_issue_date": "",
+            "date_sequence_status": "match",
+            "date_sequence_notes": "보험증권 발행일과 송장일 및 패킹리스트일이 먼저 확인되고, 이후 B/L 선적일과 본선적재일이 이어지며 최종선적기한 이전에 선적된 흐름으로 보입니다."
+          },
+          "comparison_matrix": [
+            {
+              "category": "서류 구비 현황",
+              "check_item": "file_presence",
+              "check_item_ko": "서류 구비 현황",
+              "result": "match",
+              "lc": "present",
+              "commercial_invoice": "present",
+              "bill_of_lading": "present",
+              "packing_list": "present",
+              "marine_cargo_insurance": "present",
+              "certificate_of_origin": "present"
+            },
+            {
+              "category": "서류 구비 현황",
+              "check_item": "required_documents_presence",
+              "check_item_ko": "L/C 요구서류 충족 여부",
+              "result": "match",
+              "lc": "5 docs required",
+              "commercial_invoice": "present",
+              "bill_of_lading": "present",
+              "packing_list": "present",
+              "marine_cargo_insurance": "present",
+              "certificate_of_origin": "present"
+            },
+            {
+              "category": "식별번호",
+              "check_item": "lc_number_consistency",
+              "check_item_ko": "L/C 번호 일치성",
+              "result": "match",
+              "lc": "LC-ROTEM-2015-0518",
+              "commercial_invoice": "LC-ROTEM-2015-0518",
+              "bill_of_lading": "LC-ROTEM-2015-0518",
+              "packing_list": "LC-ROTEM-2015-0518",
+              "marine_cargo_insurance": "LC-ROTEM-2015-0518",
+              "certificate_of_origin": "LC-ROTEM-2015-0518"
+            },
+            {
+              "category": "식별번호",
+              "check_item": "invoice_number_consistency",
+              "check_item_ko": "송장 번호 일치성",
+              "result": "match",
+              "commercial_invoice": "INV-20150518-01",
+              "marine_cargo_insurance": "INV-20150518-01",
+              "certificate_of_origin": "INV-20150518-01"
+            },
+            {
+              "category": "당사자 정보",
+              "check_item": "seller_party_consistency",
+              "check_item_ko": "수출자/송하인 정보 일치성",
+              "result": "match",
+              "lc": "ABC GLOBAL TRADING CO., LTD.",
+              "commercial_invoice": "ABC GLOBAL TRADING CO., LTD.",
+              "bill_of_lading": "ABC GLOBAL TRADING CO., LTD.",
+              "packing_list": "ABC GLOBAL TRADING CO., LTD.",
+              "certificate_of_origin": "ABC GLOBAL TRADING CO., LTD."
+            },
+            {
+              "category": "당사자 정보",
+              "check_item": "buyer_party_consistency",
+              "check_item_ko": "수입자/수하인 정보 일치성",
+              "result": "unclear",
+              "lc": "HYUNDAI ROTEM COMPANY",
+              "commercial_invoice": "HYUNDAI ROTEM COMPANY",
+              "bill_of_lading": "TO ORDER OF WOORI BANK",
+              "packing_list": "HYUNDAI ROTEM COMPANY",
+              "marine_cargo_insurance": "HYUNDAI ROTEM COMPANY",
+              "certificate_of_origin": "HYUNDAI ROTEM COMPANY"
+            },
+            {
+              "category": "물품 및 조건",
+              "check_item": "goods_description",
+              "check_item_ko": "물품 명세 일치성",
+              "result": "match",
+              "lc": "RAILWAY PARTS AND COMPONENTS",
+              "commercial_invoice": "RAILWAY PARTS AND COMPONENTS",
+              "bill_of_lading": "RAILWAY PARTS AND COMPONENTS",
+              "packing_list": "RAILWAY PARTS AND COMPONENTS",
+              "marine_cargo_insurance": "RAILWAY PARTS AND COMPONENTS",
+              "certificate_of_origin": "RAILWAY PARTS AND COMPONENTS"
+            },
+            {
+              "category": "물품 및 조건",
+              "check_item": "package_count_consistency",
+              "check_item_ko": "포장 수량 일치성",
+              "result": "match",
+              "bill_of_lading": "10",
+              "packing_list": "10",
+              "marine_cargo_insurance": "10"
+            },
+            {
+              "category": "물품 및 조건",
+              "check_item": "gross_weight_consistency",
+              "check_item_ko": "총중량 일치성",
+              "result": "match",
+              "bill_of_lading": "8200",
+              "packing_list": "8200"
+            },
+            {
+              "category": "물품 및 조건",
+              "check_item": "measurement_cbm_consistency",
+              "check_item_ko": "CBM 일치성",
+              "result": "match",
+              "bill_of_lading": "18.5",
+              "packing_list": "18.5"
+            },
+            {
+              "category": "날짜 및 선적",
+              "check_item": "port_of_loading",
+              "check_item_ko": "선적항 일치성",
+              "result": "match",
+              "commercial_invoice": "BUSAN",
+              "bill_of_lading": "BUSAN",
+              "packing_list": "BUSAN",
+              "marine_cargo_insurance": "BUSAN"
+            },
+            {
+              "category": "날짜 및 선적",
+              "check_item": "port_of_discharge",
+              "check_item_ko": "양하항 일치성",
+              "result": "match",
+              "commercial_invoice": "MERSIN",
+              "bill_of_lading": "MERSIN",
+              "packing_list": "MERSIN",
+              "marine_cargo_insurance": "MERSIN"
+            },
+            {
+              "category": "날짜 및 선적",
+              "check_item": "bl_shipment_date_vs_latest_shipment",
+              "check_item_ko": "선적일 vs 최종선적기한",
+              "result": "match",
+              "bill_of_lading": "2015-05-19",
+              "lc": "2015-05-20"
+            },
+            {
+              "category": "날짜 및 선적",
+              "check_item": "insurance_policy_issue_date_vs_shipment_date",
+              "check_item_ko": "보험증권 발행일 vs 선적일",
+              "result": "match",
+              "marine_cargo_insurance": "2015-05-18",
+              "bill_of_lading": "2015-05-19"
+            },
+            {
+              "category": "날짜 및 선적",
+              "check_item": "date_flow_timeline",
+              "check_item_ko": "문서 간 날짜 흐름",
+              "result": "match",
+              "commercial_invoice": "2015-05-18",
+              "packing_list": "2015-05-18",
+              "marine_cargo_insurance": "2015-05-18",
+              "bill_of_lading": "2015-05-19",
+              "lc": "2015-05-20"
+            },
+            {
+              "category": "물품 및 조건",
+              "check_item": "insurance_amount_vs_lc_requirement",
+              "check_item_ko": "보험금액 vs L/C 요구수준",
+              "result": "match",
+              "commercial_invoice": "125000",
+              "marine_cargo_insurance": "137500",
+              "lc": "110 percent required"
+            }
+          ],
+          "document_checklists": {
+            "lc": [
+              {
+                "item": "신용장 유효기한 (Expiry Date)",
+                "status": "pass",
+                "details": "만료일이 확인되며 전체 서류 흐름상 보수적으로 수용 가능한 범위로 보입니다."
+              },
+              {
+                "item": "최종 선적기한 (Latest Shipment)",
+                "status": "pass",
+                "details": "B/L 선적일이 최종선적기한 이전으로 확인됩니다."
+              },
+              {
+                "item": "분할선적 허용 여부 (Partial Shipment)",
+                "status": "warning",
+                "details": "분할선적 허용 여부는 추출값상 명확하지 않아 추가 확인이 필요합니다."
+              }
+            ],
+            "commercial_invoice": [
+              {
+                "item": "L/C 번호 기재 여부",
+                "status": "pass",
+                "details": "송장에 L/C 번호가 기재되어 있습니다."
+              },
+              {
+                "item": "발행자 서명/날인 유무",
+                "status": "warning",
+                "details": "서명 또는 날인 여부는 현재 추출 필드만으로 확정하기 어렵습니다."
+              },
+              {
+                "item": "인도조건(Incoterms) 명시",
+                "status": "warning",
+                "details": "인도조건은 현재 추출 필드에서 명확히 확인되지 않습니다."
+              }
+            ],
+            "bill_of_lading": [
+              {
+                "item": "Clean On Board 본선적재 표기",
+                "status": "warning",
+                "details": "본선적재 여부는 on board date는 확인되나 문구 자체는 추가 확인이 필요합니다."
+              },
+              {
+                "item": "운임 지급 조건 (Freight Prepaid/Collect)",
+                "status": "pass",
+                "details": "운임 조건은 PREPAID로 확인됩니다."
+              },
+              {
+                "item": "송하인/수하인 지정 적합성",
+                "status": "warning",
+                "details": "수하인이 은행 지시형 표기로 기재되어 있어 거래 구조상 적합성 검토가 필요합니다."
+              }
+            ],
+            "packing_list": [
+              {
+                "item": "총중량(Gross Wt) vs 순중량(Net Wt) 산정",
+                "status": "pass",
+                "details": "총중량과 순중량이 모두 추출되며 수치 흐름상 자연스럽습니다."
+              },
+              {
+                "item": "CBM 및 포장 개수 일치",
+                "status": "pass",
+                "details": "포장 수량과 CBM이 B/L과 일치합니다."
+              }
+            ],
+            "marine_cargo_insurance": [
+              {
+                "item": "부보금액 충족 (CIF 110% 이상)",
+                "status": "pass",
+                "details": "보험금액이 송장금액 대비 110% 수준으로 확인됩니다."
+              },
+              {
+                "item": "보험증권 발행일 (선적일 이전 여부)",
+                "status": "pass",
+                "details": "보험증권 발행일이 선적일 이전 또는 동일 흐름상 선행합니다."
+              }
+            ],
+            "certificate_of_origin": [
+              {
+                "item": "원산지 국명 및 원산지 결정기준 표기",
+                "status": "pass",
+                "details": "원산지 국명이 확인됩니다."
+              },
+              {
+                "item": "발급기관 서명 및 인장",
+                "status": "warning",
+                "details": "서명 및 인장 여부는 현재 추출 필드만으로 확정하기 어렵습니다."
+              }
+            ]
+          },
+          "discrepancy_candidates": [
+            {
+              "check_item": "buyer_party_consistency",
+              "issue_type": "reading_unclear",
+              "severity": "warning",
+              "status": "unclear",
+              "document_pair": ["bill_of_lading", "commercial_invoice"],
+              "compared_values": {
+                "lc": "HYUNDAI ROTEM COMPANY",
+                "commercial_invoice": "HYUNDAI ROTEM COMPANY",
+                "bill_of_lading": "TO ORDER OF WOORI BANK",
+                "packing_list": "HYUNDAI ROTEM COMPANY",
+                "marine_cargo_insurance": "HYUNDAI ROTEM COMPANY",
+                "certificate_of_origin": "HYUNDAI ROTEM COMPANY"
+              },
+              "note": "B/L 수하인이 은행 지시형 표기로 보이며 일반 매수인명과 직접 일치 비교하기 어렵습니다.",
+              "recommended_follow_up": "원신용장 조건과 은행 지시형 수하인 허용 여부를 확인하십시오."
+            }
+          ],
+          "check_item_evidence": [
+            {
+              "check_item": "lc_number_consistency",
+              "documents": {
+                "lc": {
+                  "field_name": "lc_number",
+                  "value": "LC-ROTEM-2015-0518"
+                },
+                "commercial_invoice": {
+                  "field_name": "lc_number",
+                  "value": "LC-ROTEM-2015-0518"
+                },
+                "bill_of_lading": {
+                  "field_name": "lc_number",
+                  "value": "LC-ROTEM-2015-0518"
+                },
+                "packing_list": {
+                  "field_name": "lc_number",
+                  "value": "LC-ROTEM-2015-0518"
+                },
+                "marine_cargo_insurance": {
+                  "field_name": "lc_number",
+                  "value": "LC-ROTEM-2015-0518"
+                },
+                "certificate_of_origin": {
+                  "field_name": "lc_number",
+                  "value": "LC-ROTEM-2015-0518"
+                }
+              }
+            },
+            {
+              "check_item": "invoice_number_consistency",
+              "documents": {
+                "commercial_invoice": {
+                  "field_name": "invoice_number",
+                  "value": "INV-20150518-01"
+                },
+                "marine_cargo_insurance": {
+                  "field_name": "invoice_number",
+                  "value": "INV-20150518-01"
+                },
+                "certificate_of_origin": {
+                  "field_name": "invoice_number",
+                  "value": "INV-20150518-01"
+                }
+              }
+            },
+            {
+              "check_item": "seller_party_consistency",
+              "documents": {
+                "lc": {
+                  "field_name": "beneficiary_name",
+                  "value": "ABC GLOBAL TRADING CO., LTD."
+                },
+                "commercial_invoice": {
+                  "field_name": "seller_name",
+                  "value": "ABC GLOBAL TRADING CO., LTD."
+                },
+                "bill_of_lading": {
+                  "field_name": "shipper_name",
+                  "value": "ABC GLOBAL TRADING CO., LTD."
+                },
+                "packing_list": {
+                  "field_name": "seller_name",
+                  "value": "ABC GLOBAL TRADING CO., LTD."
+                },
+                "certificate_of_origin": {
+                  "field_name": "exporter_name",
+                  "value": "ABC GLOBAL TRADING CO., LTD."
+                }
+              }
+            },
+            {
+              "check_item": "buyer_party_consistency",
+              "documents": {
+                "lc": {
+                  "field_name": "applicant_name",
+                  "value": "HYUNDAI ROTEM COMPANY"
+                },
+                "commercial_invoice": {
+                  "field_name": "buyer_name",
+                  "value": "HYUNDAI ROTEM COMPANY"
+                },
+                "bill_of_lading": {
+                  "field_name": "consignee_name",
+                  "value": "TO ORDER OF WOORI BANK"
+                },
+                "packing_list": {
+                  "field_name": "buyer_name",
+                  "value": "HYUNDAI ROTEM COMPANY"
+                },
+                "marine_cargo_insurance": {
+                  "field_name": "insured_beneficiary_name",
+                  "value": "HYUNDAI ROTEM COMPANY"
+                },
+                "certificate_of_origin": {
+                  "field_name": "importer_name",
+                  "value": "HYUNDAI ROTEM COMPANY"
+                }
+              }
+            },
+            {
+              "check_item": "goods_description",
+              "documents": {
+                "lc": {
+                  "field_name": "goods_summary",
+                  "value": "RAILWAY PARTS AND COMPONENTS"
+                },
+                "commercial_invoice": {
+                  "field_name": "line_items.product_name",
+                  "value": "RAILWAY PARTS AND COMPONENTS"
+                },
+                "bill_of_lading": {
+                  "field_name": "cargo_details.cargo_description",
+                  "value": "RAILWAY PARTS AND COMPONENTS"
+                },
+                "packing_list": {
+                  "field_name": "line_items.product_name",
+                  "value": "RAILWAY PARTS AND COMPONENTS"
+                },
+                "marine_cargo_insurance": {
+                  "field_name": "insured_goods_summary",
+                  "value": "RAILWAY PARTS AND COMPONENTS"
+                },
+                "certificate_of_origin": {
+                  "field_name": "goods_summary",
+                  "value": "RAILWAY PARTS AND COMPONENTS"
+                }
+              }
+            },
+            {
+              "check_item": "package_count_consistency",
+              "documents": {
+                "bill_of_lading": {
+                  "field_name": "cargo_details.package_count",
+                  "value": "10"
+                },
+                "packing_list": {
+                  "field_name": "total_package_count",
+                  "value": "10"
+                },
+                "marine_cargo_insurance": {
+                  "field_name": "package_count",
+                  "value": "10"
+                }
+              }
+            },
+            {
+              "check_item": "gross_weight_consistency",
+              "documents": {
+                "bill_of_lading": {
+                  "field_name": "cargo_details.gross_weight",
+                  "value": "8200"
+                },
+                "packing_list": {
+                  "field_name": "total_gross_weight",
+                  "value": "8200"
+                }
+              }
+            },
+            {
+              "check_item": "measurement_cbm_consistency",
+              "documents": {
+                "bill_of_lading": {
+                  "field_name": "total_measurement_cbm",
+                  "value": "18.5"
+                },
+                "packing_list": {
+                  "field_name": "total_measurement_cbm",
+                  "value": "18.5"
+                }
+              }
+            },
+            {
+              "check_item": "port_of_loading",
+              "documents": {
+                "commercial_invoice": {
+                  "field_name": "port_of_loading",
+                  "value": "BUSAN"
+                },
+                "bill_of_lading": {
+                  "field_name": "port_of_loading",
+                  "value": "BUSAN"
+                },
+                "packing_list": {
+                  "field_name": "port_of_loading",
+                  "value": "BUSAN"
+                },
+                "marine_cargo_insurance": {
+                  "field_name": "port_of_loading",
+                  "value": "BUSAN"
+                }
+              }
+            },
+            {
+              "check_item": "port_of_discharge",
+              "documents": {
+                "commercial_invoice": {
+                  "field_name": "port_of_discharge",
+                  "value": "MERSIN"
+                },
+                "bill_of_lading": {
+                  "field_name": "port_of_discharge",
+                  "value": "MERSIN"
+                },
+                "packing_list": {
+                  "field_name": "port_of_discharge",
+                  "value": "MERSIN"
+                },
+                "marine_cargo_insurance": {
+                  "field_name": "port_of_discharge",
+                  "value": "MERSIN"
+                }
+              }
+            },
+            {
+              "check_item": "bl_shipment_date_vs_latest_shipment",
+              "documents": {
+                "bill_of_lading": {
+                  "field_name": "shipment_date",
+                  "value": "2015-05-19"
+                },
+                "lc": {
+                  "field_name": "latest_shipment_date",
+                  "value": "2015-05-20"
+                }
+              }
+            },
+            {
+              "check_item": "insurance_policy_issue_date_vs_shipment_date",
+              "documents": {
+                "marine_cargo_insurance": {
+                  "field_name": "policy_issue_date",
+                  "value": "2015-05-18"
+                },
+                "bill_of_lading": {
+                  "field_name": "shipment_date",
+                  "value": "2015-05-19"
+                }
+              }
+            },
+            {
+              "check_item": "date_flow_timeline",
+              "documents": {
+                "commercial_invoice": {
+                  "field_name": "invoice_date",
+                  "value": "2015-05-18"
+                },
+                "packing_list": {
+                  "field_name": "packing_list_date",
+                  "value": "2015-05-18"
+                },
+                "marine_cargo_insurance": {
+                  "field_name": "policy_issue_date",
+                  "value": "2015-05-18"
+                },
+                "bill_of_lading": {
+                  "field_name": "shipment_date",
+                  "value": "2015-05-19"
+                },
+                "lc": {
+                  "field_name": "latest_shipment_date",
+                  "value": "2015-05-20"
+                }
+              }
+            },
+            {
+              "check_item": "insurance_amount_vs_lc_requirement",
+              "documents": {
+                "commercial_invoice": {
+                  "field_name": "total_amount",
+                  "value": "125000"
+                },
+                "marine_cargo_insurance": {
+                  "field_name": "insured_amount",
+                  "value": "137500"
+                },
+                "lc": {
+                  "field_name": "required_documents.document_requirement_text",
+                  "value": "Insurance certificate covering 110 percent of invoice value"
+                }
+              }
+            }
+          ],
+          "document_extract_evidence": {
+            "lc": {
+              "lc_number": {
+                "field_name": "lc_number",
+                "value": "LC-ROTEM-2015-0518"
+              },
+              "po_number": {
+                "field_name": "po_number",
+                "value": "PO-ROTEM-7781"
+              },
+              "applicant_name": {
+                "field_name": "applicant_name",
+                "value": "HYUNDAI ROTEM COMPANY"
+              },
+              "beneficiary_name": {
+                "field_name": "beneficiary_name",
+                "value": "ABC GLOBAL TRADING CO., LTD."
+              },
+              "credit_amount": {
+                "field_name": "credit_amount",
+                "value": "125000"
+              },
+              "currency_code": {
+                "field_name": "currency_code",
+                "value": "USD"
+              },
+              "expiry_date": {
+                "field_name": "expiry_date",
+                "value": "2015-06-30"
+              },
+              "latest_shipment_date": {
+                "field_name": "latest_shipment_date",
+                "value": "2015-05-20"
+              },
+              "payment_terms": {
+                "field_name": "payment_terms",
+                "value": "L/C at sight"
+              },
+              "goods_summary": {
+                "field_name": "goods_summary",
+                "value": "RAILWAY PARTS AND COMPONENTS"
+              }
+            },
+            "commercial_invoice": {
+              "invoice_number": {
+                "field_name": "invoice_number",
+                "value": "INV-20150518-01"
+              },
+              "po_number": {
+                "field_name": "po_number",
+                "value": "PO-ROTEM-7781"
+              },
+              "lc_number": {
+                "field_name": "lc_number",
+                "value": "LC-ROTEM-2015-0518"
+              },
+              "seller_name": {
+                "field_name": "seller_name",
+                "value": "ABC GLOBAL TRADING CO., LTD."
+              },
+              "buyer_name": {
+                "field_name": "buyer_name",
+                "value": "HYUNDAI ROTEM COMPANY"
+              },
+              "invoice_date": {
+                "field_name": "invoice_date",
+                "value": "2015-05-18"
+              },
+              "total_amount": {
+                "field_name": "total_amount",
+                "value": "125000"
+              },
+              "port_of_loading": {
+                "field_name": "port_of_loading",
+                "value": "BUSAN"
+              },
+              "port_of_discharge": {
+                "field_name": "port_of_discharge",
+                "value": "MERSIN"
+              }
+            },
+            "bill_of_lading": {
+              "bl_number": {
+                "field_name": "bl_number",
+                "value": "BL-20150518-77"
+              },
+              "po_number": {
+                "field_name": "po_number",
+                "value": "PO-ROTEM-7781"
+              },
+              "lc_number": {
+                "field_name": "lc_number",
+                "value": "LC-ROTEM-2015-0518"
+              },
+              "shipper_name": {
+                "field_name": "shipper_name",
+                "value": "ABC GLOBAL TRADING CO., LTD."
+              },
+              "consignee_name": {
+                "field_name": "consignee_name",
+                "value": "TO ORDER OF WOORI BANK"
+              },
+              "vessel_name": {
+                "field_name": "vessel_name",
+                "value": "MV EASTERN STAR"
+              },
+              "port_of_loading": {
+                "field_name": "port_of_loading",
+                "value": "BUSAN"
+              },
+              "port_of_discharge": {
+                "field_name": "port_of_discharge",
+                "value": "MERSIN"
+              },
+              "shipment_date": {
+                "field_name": "shipment_date",
+                "value": "2015-05-19"
+              },
+              "on_board_date": {
+                "field_name": "on_board_date",
+                "value": "2015-05-19"
+              },
+              "total_measurement_cbm": {
+                "field_name": "total_measurement_cbm",
+                "value": "18.5"
+              }
+            },
+            "packing_list": {
+              "packing_list_number": {
+                "field_name": "packing_list_number",
+                "value": "PL-20150518-01"
+              },
+              "po_number": {
+                "field_name": "po_number",
+                "value": "PO-ROTEM-7781"
+              },
+              "lc_number": {
+                "field_name": "lc_number",
+                "value": "LC-ROTEM-2015-0518"
+              },
+              "seller_name": {
+                "field_name": "seller_name",
+                "value": "ABC GLOBAL TRADING CO., LTD."
+              },
+              "buyer_name": {
+                "field_name": "buyer_name",
+                "value": "HYUNDAI ROTEM COMPANY"
+              },
+              "packing_list_date": {
+                "field_name": "packing_list_date",
+                "value": "2015-05-18"
+              },
+              "total_package_count": {
+                "field_name": "total_package_count",
+                "value": "10"
+              },
+              "total_net_weight": {
+                "field_name": "total_net_weight",
+                "value": "7900"
+              },
+              "total_gross_weight": {
+                "field_name": "total_gross_weight",
+                "value": "8200"
+              },
+              "total_measurement_cbm": {
+                "field_name": "total_measurement_cbm",
+                "value": "18.5"
+              },
+              "port_of_loading": {
+                "field_name": "port_of_loading",
+                "value": "BUSAN"
+              },
+              "port_of_discharge": {
+                "field_name": "port_of_discharge",
+                "value": "MERSIN"
+              }
+            },
+            "marine_cargo_insurance": {
+              "policy_certificate_number": {
+                "field_name": "policy_certificate_number",
+                "value": "INS-20150518-09"
+              },
+              "policy_issue_date": {
+                "field_name": "policy_issue_date",
+                "value": "2015-05-18"
+              },
+              "insured_beneficiary_name": {
+                "field_name": "insured_beneficiary_name",
+                "value": "HYUNDAI ROTEM COMPANY"
+              },
+              "lc_number": {
+                "field_name": "lc_number",
+                "value": "LC-ROTEM-2015-0518"
+              },
+              "invoice_number": {
+                "field_name": "invoice_number",
+                "value": "INV-20150518-01"
+              },
+              "vessel_name": {
+                "field_name": "vessel_name",
+                "value": "MV EASTERN STAR"
+              },
+              "voyage_number": {
+                "field_name": "voyage_number",
+                "value": "VOY-0519"
+              },
+              "port_of_loading": {
+                "field_name": "port_of_loading",
+                "value": "BUSAN"
+              },
+              "port_of_discharge": {
+                "field_name": "port_of_discharge",
+                "value": "MERSIN"
+              },
+              "insured_amount": {
+                "field_name": "insured_amount",
+                "value": "137500"
+              },
+              "currency_code": {
+                "field_name": "currency_code",
+                "value": "USD"
+              },
+              "package_count": {
+                "field_name": "package_count",
+                "value": "10"
+              },
+              "insured_goods_summary": {
+                "field_name": "insured_goods_summary",
+                "value": "RAILWAY PARTS AND COMPONENTS"
+              }
+            },
+            "certificate_of_origin": {
+              "certificate_number": {
+                "field_name": "certificate_number",
+                "value": "COO-20150518-03"
+              },
+              "po_number": {
+                "field_name": "po_number",
+                "value": "PO-ROTEM-7781"
+              },
+              "lc_number": {
+                "field_name": "lc_number",
+                "value": "LC-ROTEM-2015-0518"
+              },
+              "exporter_name": {
+                "field_name": "exporter_name",
+                "value": "ABC GLOBAL TRADING CO., LTD."
+              },
+              "importer_name": {
+                "field_name": "importer_name",
+                "value": "HYUNDAI ROTEM COMPANY"
+              },
+              "country_of_origin": {
+                "field_name": "country_of_origin",
+                "value": "KOREA"
+              },
+              "invoice_number": {
+                "field_name": "invoice_number",
+                "value": "INV-20150518-01"
+              },
+              "invoice_date": {
+                "field_name": "invoice_date",
+                "value": "2015-05-18"
+              },
+              "goods_summary": {
+                "field_name": "goods_summary",
+                "value": "RAILWAY PARTS AND COMPONENTS"
+              }
+            },
+            "other_document": {}
+          },
+          "checklist_results": [
+            {
+              "check_name": "buyer_party_consistency",
+              "result": "unclear",
+              "alert_level": "warning",
+              "issue_type": "reading_unclear",
+              "evidence_summary": "B/L 수하인 표기가 은행 지시형으로 확인되어 일반 매수인명과 직접 비교가 어렵습니다.",
+              "recommended_follow_up": "신용장 조건상 은행 지시형 수하인 허용 여부를 확인하십시오."
+            },
+            {
+              "check_name": "insurance_amount_vs_lc_requirement",
+              "result": "match",
+              "alert_level": "info",
+              "issue_type": "ok",
+              "evidence_summary": "보험금액이 송장금액 대비 110% 수준으로 확인됩니다.",
+              "recommended_follow_up": "추가 조치 없이 원문 위치만 확인하면 됩니다."
+            }
+          ]
+        },
+        "human_summary": "현대로템 도착서류 세트는 전반적으로 주요 식별번호와 물품 정보가 잘 연결됩니다. L/C 번호와 송장 번호는 관련 문서들 사이에서 일치합니다. 포장 수량, 총중량, CBM도 B/L과 패킹리스트 사이에서 정합적으로 보입니다. 다만 B/L 수하인은 은행 지시형 표기로 확인되어 일반 매수인명과 직접 일치로 단정하기 어렵습니다. 보험증권 발행일, 송장일, 패킹리스트일 이후 선적이 진행된 흐름으로 보입니다. 또한 최종선적기한 이전에 선적된 것으로 확인됩니다."
+      }
+    }
+  ],
+  "final_result": {
+    "step_name": "final_trade_document_set_review_api_v1",
+    "step_type": "instruct",
+    "result": {
+      "structured_result": {
+        "overall_status": "review_required",
+        "overall_alert_level": "warning",
+        "one_line_summary": "현대로템 도착서류 세트는 전반적으로 연결되지만 일부 항목은 추가 검토가 필요합니다.",
+        "recommended_action": "B/L 수하인 표기와 보험 부보금액 충족 여부를 우선 확인하고, 핵심 식별번호와 선적일 흐름을 함께 검토하십시오."
+      },
+      "human_summary": "현대로템 도착서류 세트는 전반적으로 주요 식별번호와 물품 정보가 잘 연결됩니다. 다만 B/L 수하인 표기는 추가 검토가 필요합니다."
+    }
+  }
+}

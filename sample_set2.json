@@ -1,0 +1,1078 @@
+{
+  "job_id": "job_01JXXXXXXX",
+  "status": "completed",
+  "workflow_id": "agt_hYy33EbPU93zggAb6W9z3G",
+  "file_name": "shipping_documents_set2_full_discrepancy.pdf",
+  "include": ["all"],
+  "steps": [
+    {
+      "step_name": "parse",
+      "step_type": "parse",
+      "status": "completed",
+      "result": {
+        "documents": [
+          {
+            "text": "..."
+          }
+        ]
+      }
+    },
+    {
+      "step_name": "classify",
+      "step_type": "classify",
+      "status": "completed",
+      "result": {
+        "documents": [
+          { "category": "lc" },
+          { "category": "commercial_invoice" },
+          { "category": "bill_of_lading" },
+          { "category": "packing_list" },
+          { "category": "marine_cargo_insurance" },
+          { "category": "certificate_of_origin" }
+        ]
+      }
+    },
+    {
+      "step_name": "extract",
+      "step_type": "extract",
+      "status": "completed",
+      "result": {
+        "documents": [
+          {
+            "document_type": "lc",
+            "schema_name": "lc_schema",
+            "data": {
+              "document_type": "신용장 L/C",
+              "lc_number": "LC-2024-001",
+              "reference_number": "",
+              "po_number": "",
+              "applicant_name": "ABC IMPORT CO., LTD.",
+              "beneficiary_name": "KOREA EXPORT INC.",
+              "credit_amount": 2500,
+              "currency_code": "USD",
+              "expiry_date": "2024-08-31",
+              "latest_shipment_date": "2024-08-15",
+              "tolerance_text": "",
+              "tolerance_percent_plus": 0,
+              "tolerance_percent_minus": 0,
+              "partial_shipment_allowed": false,
+              "transshipment_allowed": false,
+              "payment_terms": "L/C at sight",
+              "goods_summary": "POLYESTER FABRIC",
+              "required_documents": [
+                {
+                  "document_name": "Commercial Invoice",
+                  "document_requirement_text": "Signed commercial invoice in 3 originals"
+                },
+                {
+                  "document_name": "Packing List",
+                  "document_requirement_text": "Packing list in 3 copies"
+                },
+                {
+                  "document_name": "Bill of Lading",
+                  "document_requirement_text": "Full set of clean on board bills of lading"
+                }
+              ]
+            },
+            "additional_values": {
+              "document_type": {
+                "value": "신용장 L/C",
+                "confidence": 0.99,
+                "locations": [
+                  { "page": 1, "bbox": [72, 88, 210, 112] }
+                ]
+              },
+              "lc_number": {
+                "value": "LC-2024-001",
+                "confidence": 0.97,
+                "locations": [
+                  { "page": 1, "bbox": [410, 126, 540, 146] }
+                ]
+              },
+              "applicant_name": {
+                "value": "ABC IMPORT CO., LTD.",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 1, "bbox": [80, 220, 290, 242] }
+                ]
+              },
+              "beneficiary_name": {
+                "value": "KOREA EXPORT INC.",
+                "confidence": 0.96,
+                "locations": [
+                  { "page": 1, "bbox": [80, 270, 260, 292] }
+                ]
+              },
+              "expiry_date": {
+                "value": "2024-08-31",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 1, "bbox": [420, 310, 520, 330] }
+                ]
+              },
+              "latest_shipment_date": {
+                "value": "2024-08-15",
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 1, "bbox": [420, 340, 520, 360] }
+                ]
+              },
+              "goods_summary": {
+                "value": "POLYESTER FABRIC",
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 2, "bbox": [90, 180, 280, 205] }
+                ]
+              },
+              "required_documents.document_name": [
+                {
+                  "row_index": 0,
+                  "value": "Commercial Invoice",
+                  "confidence": 0.92,
+                  "locations": [
+                    { "page": 2, "bbox": [100, 420, 250, 440] }
+                  ]
+                },
+                {
+                  "row_index": 1,
+                  "value": "Packing List",
+                  "confidence": 0.91,
+                  "locations": [
+                    { "page": 2, "bbox": [100, 445, 220, 465] }
+                  ]
+                },
+                {
+                  "row_index": 2,
+                  "value": "Bill of Lading",
+                  "confidence": 0.90,
+                  "locations": [
+                    { "page": 2, "bbox": [100, 470, 230, 490] }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "document_type": "commercial_invoice",
+            "schema_name": "commercial_invoice_schema",
+            "data": {
+              "document_type": "상업송장",
+              "invoice_number": "INV-240801",
+              "reference_number": "",
+              "po_number": "",
+              "lc_number": "LC-2024-001",
+              "seller_name": "KOREA EXPORT INC.",
+              "buyer_name": "ABC IMPORT CO., LTD.",
+              "invoice_date": "2024-08-01",
+              "currency_code": "USD",
+              "total_amount": 2500,
+              "port_of_loading": "BUSAN",
+              "port_of_discharge": "LOS ANGELES",
+              "payment_terms": "L/C at sight",
+              "line_items": [
+                {
+                  "product_name": "POLYESTER FABRIC",
+                  "quantity": 1000,
+                  "unit_price": 2.5,
+                  "line_amount": 2500
+                }
+              ]
+            },
+            "additional_values": {
+              "invoice_number": {
+                "value": "INV-240801",
+                "confidence": 0.98,
+                "locations": [
+                  { "page": 3, "bbox": [430, 120, 535, 142] }
+                ]
+              },
+              "lc_number": {
+                "value": "LC-2024-001",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 3, "bbox": [430, 150, 540, 172] }
+                ]
+              },
+              "seller_name": {
+                "value": "KOREA EXPORT INC.",
+                "confidence": 0.96,
+                "locations": [
+                  { "page": 3, "bbox": [90, 180, 260, 202] }
+                ]
+              },
+              "buyer_name": {
+                "value": "ABC IMPORT CO., LTD.",
+                "confidence": 0.96,
+                "locations": [
+                  { "page": 3, "bbox": [90, 230, 290, 252] }
+                ]
+              },
+              "invoice_date": {
+                "value": "2024-08-01",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 3, "bbox": [430, 180, 520, 202] }
+                ]
+              },
+              "port_of_loading": {
+                "value": "BUSAN",
+                "confidence": 0.90,
+                "locations": [
+                  { "page": 3, "bbox": [100, 320, 180, 340] }
+                ]
+              },
+              "port_of_discharge": {
+                "value": "LOS ANGELES",
+                "confidence": 0.90,
+                "locations": [
+                  { "page": 3, "bbox": [260, 320, 390, 340] }
+                ]
+              },
+              "line_items.product_name": [
+                {
+                  "row_index": 0,
+                  "value": "POLYESTER FABRIC",
+                  "confidence": 0.93,
+                  "locations": [
+                    { "page": 3, "bbox": [100, 420, 250, 442] }
+                  ]
+                }
+              ],
+              "line_items.quantity": [
+                {
+                  "row_index": 0,
+                  "value": 1000,
+                  "confidence": 0.94,
+                  "locations": [
+                    { "page": 3, "bbox": [300, 420, 350, 442] }
+                  ]
+                }
+              ],
+              "line_items.unit_price": [
+                {
+                  "row_index": 0,
+                  "value": 2.5,
+                  "confidence": 0.94,
+                  "locations": [
+                    { "page": 3, "bbox": [380, 420, 430, 442] }
+                  ]
+                }
+              ],
+              "line_items.line_amount": [
+                {
+                  "row_index": 0,
+                  "value": 2500,
+                  "confidence": 0.95,
+                  "locations": [
+                    { "page": 3, "bbox": [470, 420, 540, 442] }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "document_type": "bill_of_lading",
+            "schema_name": "bill_of_lading_schema",
+            "data": {
+              "document_type": "선하증권",
+              "bl_number": "BL-778899",
+              "reference_number": "",
+              "po_number": "",
+              "lc_number": "LC-2024-001",
+              "shipper_name": "KOREA EXPORT INC.",
+              "consignee_name": "TO ORDER OF ABC BANK",
+              "vessel_name": "MV OCEAN STAR",
+              "port_of_loading": "BUSAN",
+              "port_of_discharge": "LOS ANGELES",
+              "shipment_date": "2024-08-10",
+              "on_board_date": "2024-08-10",
+              "total_measurement_cbm": 12.4,
+              "freight_terms": "PREPAID",
+              "cargo_details": [
+                {
+                  "cargo_description": "POLYESTER FABRIC",
+                  "package_count": 50,
+                  "gross_weight": 1200,
+                  "measurement_cbm": 12.4
+                }
+              ]
+            },
+            "additional_values": {
+              "bl_number": {
+                "value": "BL-778899",
+                "confidence": 0.97,
+                "locations": [
+                  { "page": 4, "bbox": [420, 110, 520, 132] }
+                ]
+              },
+              "lc_number": {
+                "value": "LC-2024-001",
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 4, "bbox": [420, 145, 530, 167] }
+                ]
+              },
+              "shipper_name": {
+                "value": "KOREA EXPORT INC.",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 4, "bbox": [90, 180, 260, 202] }
+                ]
+              },
+              "consignee_name": {
+                "value": "TO ORDER OF ABC BANK",
+                "confidence": 0.92,
+                "locations": [
+                  { "page": 4, "bbox": [90, 230, 300, 252] }
+                ]
+              },
+              "vessel_name": {
+                "value": "MV OCEAN STAR",
+                "confidence": 0.90,
+                "locations": [
+                  { "page": 4, "bbox": [100, 300, 220, 320] }
+                ]
+              },
+              "port_of_loading": {
+                "value": "BUSAN",
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 4, "bbox": [100, 330, 180, 350] }
+                ]
+              },
+              "port_of_discharge": {
+                "value": "LOS ANGELES",
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 4, "bbox": [250, 330, 390, 350] }
+                ]
+              },
+              "shipment_date": {
+                "value": "2024-08-10",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 4, "bbox": [410, 260, 510, 282] }
+                ]
+              },
+              "on_board_date": {
+                "value": "2024-08-10",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 4, "bbox": [410, 290, 510, 312] }
+                ]
+              },
+              "total_measurement_cbm": {
+                "value": 12.4,
+                "confidence": 0.90,
+                "locations": [
+                  { "page": 4, "bbox": [430, 360, 500, 382] }
+                ]
+              },
+              "cargo_details.cargo_description": [
+                {
+                  "row_index": 0,
+                  "value": "POLYESTER FABRIC",
+                  "confidence": 0.92,
+                  "locations": [
+                    { "page": 4, "bbox": [110, 430, 260, 452] }
+                  ]
+                }
+              ],
+              "cargo_details.package_count": [
+                {
+                  "row_index": 0,
+                  "value": 50,
+                  "confidence": 0.91,
+                  "locations": [
+                    { "page": 4, "bbox": [300, 430, 340, 452] }
+                  ]
+                }
+              ],
+              "cargo_details.gross_weight": [
+                {
+                  "row_index": 0,
+                  "value": 1200,
+                  "confidence": 0.91,
+                  "locations": [
+                    { "page": 4, "bbox": [360, 430, 430, 452] }
+                  ]
+                }
+              ],
+              "cargo_details.measurement_cbm": [
+                {
+                  "row_index": 0,
+                  "value": 12.4,
+                  "confidence": 0.90,
+                  "locations": [
+                    { "page": 4, "bbox": [460, 430, 520, 452] }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "document_type": "packing_list",
+            "schema_name": "packing_list_schema",
+            "data": {
+              "document_type": "패킹리스트",
+              "packing_list_number": "PL-240801",
+              "reference_number": "",
+              "po_number": "",
+              "lc_number": "LC-2024-001",
+              "seller_name": "KOREA EXPORT INC.",
+              "buyer_name": "ABC IMPORT CO., LTD.",
+              "packing_list_date": "2024-08-01",
+              "total_package_count": 50,
+              "total_net_weight": 1100,
+              "total_gross_weight": 1200,
+              "total_measurement_cbm": 12.4,
+              "port_of_loading": "BUSAN",
+              "port_of_discharge": "LOS ANGELES",
+              "payment_terms": "L/C at sight",
+              "line_items": [
+                {
+                  "product_name": "POLYESTER FABRIC",
+                  "quantity": 1000,
+                  "package_count": 50,
+                  "net_weight": 1100,
+                  "gross_weight": 1200,
+                  "measurement_cbm": 12.4
+                }
+              ]
+            },
+            "additional_values": {
+              "packing_list_number": {
+                "value": "PL-240801",
+                "confidence": 0.97,
+                "locations": [
+                  { "page": 5, "bbox": [430, 120, 530, 142] }
+                ]
+              },
+              "lc_number": {
+                "value": "LC-2024-001",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 5, "bbox": [430, 150, 540, 172] }
+                ]
+              },
+              "packing_list_date": {
+                "value": "2024-08-01",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 5, "bbox": [430, 180, 520, 202] }
+                ]
+              },
+              "total_package_count": {
+                "value": 50,
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 5, "bbox": [420, 300, 470, 322] }
+                ]
+              },
+              "total_gross_weight": {
+                "value": 1200,
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 5, "bbox": [420, 330, 500, 352] }
+                ]
+              },
+              "total_measurement_cbm": {
+                "value": 12.4,
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 5, "bbox": [420, 360, 500, 382] }
+                ]
+              },
+              "line_items.product_name": [
+                {
+                  "row_index": 0,
+                  "value": "POLYESTER FABRIC",
+                  "confidence": 0.92,
+                  "locations": [
+                    { "page": 5, "bbox": [100, 420, 250, 442] }
+                  ]
+                }
+              ],
+              "line_items.package_count": [
+                {
+                  "row_index": 0,
+                  "value": 50,
+                  "confidence": 0.92,
+                  "locations": [
+                    { "page": 5, "bbox": [300, 420, 340, 442] }
+                  ]
+                }
+              ],
+              "line_items.gross_weight": [
+                {
+                  "row_index": 0,
+                  "value": 1200,
+                  "confidence": 0.92,
+                  "locations": [
+                    { "page": 5, "bbox": [360, 420, 430, 442] }
+                  ]
+                }
+              ],
+              "line_items.measurement_cbm": [
+                {
+                  "row_index": 0,
+                  "value": 12.4,
+                  "confidence": 0.91,
+                  "locations": [
+                    { "page": 5, "bbox": [460, 420, 520, 442] }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "document_type": "marine_cargo_insurance",
+            "schema_name": "marine_cargo_insurance_schema",
+            "data": {
+              "document_type": "해상적하보험증권",
+              "policy_certificate_number": "POL-2024-55",
+              "policy_issue_date": "2024-08-02",
+              "insured_beneficiary_name": "ABC IMPORT CO., LTD.",
+              "lc_number": "LC-2024-001",
+              "invoice_number": "INV-240801",
+              "vessel_name": "MV OCEAN STAR",
+              "voyage_number": "V-88",
+              "port_of_loading": "BUSAN",
+              "port_of_discharge": "LOS ANGELES",
+              "insured_amount": 2750,
+              "currency_code": "USD",
+              "coverage_clauses_text": "Institute Cargo Clauses (A)",
+              "claim_payable_text": "Claim payable at destination",
+              "package_count": 50,
+              "insured_goods_summary": "POLYESTER FABRIC",
+              "marks_numbers": ""
+            },
+            "additional_values": {
+              "policy_certificate_number": {
+                "value": "POL-2024-55",
+                "confidence": 0.96,
+                "locations": [
+                  { "page": 6, "bbox": [420, 120, 530, 142] }
+                ]
+              },
+              "policy_issue_date": {
+                "value": "2024-08-02",
+                "confidence": 0.95,
+                "locations": [
+                  { "page": 6, "bbox": [420, 150, 520, 172] }
+                ]
+              },
+              "insured_beneficiary_name": {
+                "value": "ABC IMPORT CO., LTD.",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 6, "bbox": [90, 210, 290, 232] }
+                ]
+              },
+              "lc_number": {
+                "value": "LC-2024-001",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 6, "bbox": [420, 180, 530, 202] }
+                ]
+              },
+              "invoice_number": {
+                "value": "INV-240801",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 6, "bbox": [420, 210, 520, 232] }
+                ]
+              },
+              "vessel_name": {
+                "value": "MV OCEAN STAR",
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 6, "bbox": [100, 300, 220, 320] }
+                ]
+              },
+              "port_of_loading": {
+                "value": "BUSAN",
+                "confidence": 0.92,
+                "locations": [
+                  { "page": 6, "bbox": [100, 330, 180, 350] }
+                ]
+              },
+              "port_of_discharge": {
+                "value": "LOS ANGELES",
+                "confidence": 0.92,
+                "locations": [
+                  { "page": 6, "bbox": [250, 330, 390, 350] }
+                ]
+              },
+              "insured_amount": {
+                "value": 2750,
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 6, "bbox": [420, 360, 500, 382] }
+                ]
+              },
+              "package_count": {
+                "value": 50,
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 6, "bbox": [420, 390, 470, 412] }
+                ]
+              },
+              "insured_goods_summary": {
+                "value": "POLYESTER FABRIC",
+                "confidence": 0.90,
+                "locations": [
+                  { "page": 6, "bbox": [100, 420, 260, 442] }
+                ]
+              }
+            }
+          },
+          {
+            "document_type": "certificate_of_origin",
+            "schema_name": "certificate_of_origin_schema",
+            "data": {
+              "document_type": "원산지증명서",
+              "certificate_number": "COO-240811",
+              "reference_number": "",
+              "po_number": "",
+              "lc_number": "LC-2024-001",
+              "exporter_name": "KOREA EXPORT INC.",
+              "importer_name": "ABC IMPORT CO., LTD.",
+              "country_of_origin": "KOREA",
+              "invoice_number": "INV-240801",
+              "invoice_date": "2024-08-01",
+              "goods_summary": "POLYESTER FABRIC"
+            },
+            "additional_values": {
+              "certificate_number": {
+                "value": "COO-240811",
+                "confidence": 0.96,
+                "locations": [
+                  { "page": 6, "bbox": [420, 460, 530, 482] }
+                ]
+              },
+              "lc_number": {
+                "value": "LC-2024-001",
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 6, "bbox": [420, 490, 530, 512] }
+                ]
+              },
+              "exporter_name": {
+                "value": "KOREA EXPORT INC.",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 6, "bbox": [90, 520, 260, 542] }
+                ]
+              },
+              "importer_name": {
+                "value": "ABC IMPORT CO., LTD.",
+                "confidence": 0.94,
+                "locations": [
+                  { "page": 6, "bbox": [90, 550, 290, 572] }
+                ]
+              },
+              "invoice_number": {
+                "value": "INV-240801",
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 6, "bbox": [420, 520, 520, 542] }
+                ]
+              },
+              "invoice_date": {
+                "value": "2024-08-01",
+                "confidence": 0.93,
+                "locations": [
+                  { "page": 6, "bbox": [420, 550, 520, 572] }
+                ]
+              },
+              "goods_summary": {
+                "value": "POLYESTER FABRIC",
+                "confidence": 0.91,
+                "locations": [
+                  { "page": 6, "bbox": [100, 580, 260, 602] }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "step_name": "final_trade_document_set_review_api_v1",
+      "step_type": "instruct",
+      "status": "completed",
+      "result": {
+        "structured_result": {
+          "overall_status": "review_required",
+          "overall_alert_level": "warning",
+          "one_line_summary": "서류 세트는 전반적으로 연결되지만 일부 항목은 추가 검토가 필요합니다.",
+          "recommended_action": "B/L 수하인 표기와 포장 수량 및 CBM 관련 근거 필드를 우선 확인하십시오.",
+          "document_presence": {
+            "lc": true,
+            "commercial_invoice": true,
+            "bill_of_lading": true,
+            "packing_list": true,
+            "marine_cargo_insurance": true,
+            "certificate_of_origin": true
+          },
+          "document_keys": {
+            "lc_number": "LC-2024-001",
+            "invoice_number": "INV-240801",
+            "bl_number": "BL-778899",
+            "policy_certificate_number": "POL-2024-55",
+            "certificate_number": "COO-240811"
+          },
+          "comparison_matrix": [
+            {
+              "category": "식별번호",
+              "check_item": "lc_number_consistency",
+              "check_item_ko": "L/C 번호 일치성",
+              "result": "match",
+              "lc": "LC-2024-001",
+              "commercial_invoice": "LC-2024-001",
+              "bill_of_lading": "LC-2024-001",
+              "packing_list": "LC-2024-001",
+              "marine_cargo_insurance": "LC-2024-001",
+              "certificate_of_origin": "LC-2024-001"
+            },
+            {
+              "category": "물품 및 조건",
+              "check_item": "goods_description",
+              "check_item_ko": "물품 명세 일치성",
+              "result": "match",
+              "lc": "POLYESTER FABRIC",
+              "commercial_invoice": "POLYESTER FABRIC",
+              "bill_of_lading": "POLYESTER FABRIC",
+              "packing_list": "POLYESTER FABRIC",
+              "marine_cargo_insurance": "POLYESTER FABRIC",
+              "certificate_of_origin": "POLYESTER FABRIC"
+            },
+            {
+              "category": "당사자 정보",
+              "check_item": "buyer_party_consistency",
+              "check_item_ko": "수입자/수하인 정보 일치성",
+              "result": "unclear",
+              "lc": "ABC IMPORT CO., LTD.",
+              "commercial_invoice": "ABC IMPORT CO., LTD.",
+              "bill_of_lading": "TO ORDER OF ABC BANK",
+              "packing_list": "ABC IMPORT CO., LTD.",
+              "marine_cargo_insurance": "ABC IMPORT CO., LTD.",
+              "certificate_of_origin": "ABC IMPORT CO., LTD."
+            }
+          ],
+          "check_item_evidence": [
+            {
+              "check_item": "lc_number_consistency",
+              "documents": {
+                "lc": {
+                  "field_name": "lc_number",
+                  "value": "LC-2024-001"
+                },
+                "commercial_invoice": {
+                  "field_name": "lc_number",
+                  "value": "LC-2024-001"
+                },
+                "bill_of_lading": {
+                  "field_name": "lc_number",
+                  "value": "LC-2024-001"
+                },
+                "packing_list": {
+                  "field_name": "lc_number",
+                  "value": "LC-2024-001"
+                },
+                "marine_cargo_insurance": {
+                  "field_name": "lc_number",
+                  "value": "LC-2024-001"
+                },
+                "certificate_of_origin": {
+                  "field_name": "lc_number",
+                  "value": "LC-2024-001"
+                }
+              }
+            },
+            {
+              "check_item": "goods_description",
+              "documents": {
+                "lc": {
+                  "field_name": "goods_summary",
+                  "value": "POLYESTER FABRIC"
+                },
+                "commercial_invoice": {
+                  "field_name": "line_items.product_name",
+                  "value": "POLYESTER FABRIC"
+                },
+                "bill_of_lading": {
+                  "field_name": "cargo_details.cargo_description",
+                  "value": "POLYESTER FABRIC"
+                },
+                "packing_list": {
+                  "field_name": "line_items.product_name",
+                  "value": "POLYESTER FABRIC"
+                },
+                "marine_cargo_insurance": {
+                  "field_name": "insured_goods_summary",
+                  "value": "POLYESTER FABRIC"
+                },
+                "certificate_of_origin": {
+                  "field_name": "goods_summary",
+                  "value": "POLYESTER FABRIC"
+                }
+              }
+            },
+            {
+              "check_item": "buyer_party_consistency",
+              "documents": {
+                "lc": {
+                  "field_name": "applicant_name",
+                  "value": "ABC IMPORT CO., LTD."
+                },
+                "commercial_invoice": {
+                  "field_name": "buyer_name",
+                  "value": "ABC IMPORT CO., LTD."
+                },
+                "bill_of_lading": {
+                  "field_name": "consignee_name",
+                  "value": "TO ORDER OF ABC BANK"
+                },
+                "packing_list": {
+                  "field_name": "buyer_name",
+                  "value": "ABC IMPORT CO., LTD."
+                },
+                "marine_cargo_insurance": {
+                  "field_name": "insured_beneficiary_name",
+                  "value": "ABC IMPORT CO., LTD."
+                },
+                "certificate_of_origin": {
+                  "field_name": "importer_name",
+                  "value": "ABC IMPORT CO., LTD."
+                }
+              }
+            }
+          ],
+          "document_extract_evidence": {
+            "lc": {
+              "lc_number": {
+                "field_name": "lc_number",
+                "value": "LC-2024-001"
+              },
+              "applicant_name": {
+                "field_name": "applicant_name",
+                "value": "ABC IMPORT CO., LTD."
+              },
+              "beneficiary_name": {
+                "field_name": "beneficiary_name",
+                "value": "KOREA EXPORT INC."
+              },
+              "latest_shipment_date": {
+                "field_name": "latest_shipment_date",
+                "value": "2024-08-15"
+              },
+              "goods_summary": {
+                "field_name": "goods_summary",
+                "value": "POLYESTER FABRIC"
+              }
+            },
+            "commercial_invoice": {
+              "invoice_number": {
+                "field_name": "invoice_number",
+                "value": "INV-240801"
+              },
+              "lc_number": {
+                "field_name": "lc_number",
+                "value": "LC-2024-001"
+              },
+              "buyer_name": {
+                "field_name": "buyer_name",
+                "value": "ABC IMPORT CO., LTD."
+              },
+              "invoice_date": {
+                "field_name": "invoice_date",
+                "value": "2024-08-01"
+              }
+            },
+            "bill_of_lading": {
+              "bl_number": {
+                "field_name": "bl_number",
+                "value": "BL-778899"
+              },
+              "consignee_name": {
+                "field_name": "consignee_name",
+                "value": "TO ORDER OF ABC BANK"
+              },
+              "shipment_date": {
+                "field_name": "shipment_date",
+                "value": "2024-08-10"
+              },
+              "port_of_loading": {
+                "field_name": "port_of_loading",
+                "value": "BUSAN"
+              }
+            },
+            "packing_list": {},
+            "marine_cargo_insurance": {},
+            "certificate_of_origin": {},
+            "other_document": {}
+          },
+          "checklist_results": []
+        },
+        "human_summary": "서류 세트는 전반적으로 연결되지만 일부 항목은 추가 검토가 필요합니다. L/C 번호와 물품 명세는 대체로 일치합니다. 다만 B/L 수하인 표기는 은행 지시형 표현으로 보여 보수적 검토가 필요합니다. 날짜 흐름은 인보이스 이후 선적이 진행된 것으로 보입니다."
+      }
+    }
+  ],
+  "final_result": {
+    "step_name": "final_trade_document_set_review_api_v1",
+    "step_type": "instruct",
+    "result": {
+      "structured_result": {
+        "overall_status": "review_required",
+        "overall_alert_level": "warning",
+        "one_line_summary": "서류 세트는 전반적으로 연결되지만 일부 항목은 추가 검토가 필요합니다.",
+        "recommended_action": "B/L 수하인 표기와 포장 수량 및 CBM 관련 근거 필드를 우선 확인하십시오.",
+        "document_presence": {
+          "lc": true,
+          "commercial_invoice": true,
+          "bill_of_lading": true,
+          "packing_list": true,
+          "marine_cargo_insurance": true,
+          "certificate_of_origin": true
+        },
+        "document_keys": {
+          "lc_number": "LC-2024-001",
+          "invoice_number": "INV-240801",
+          "bl_number": "BL-778899",
+          "policy_certificate_number": "POL-2024-55",
+          "certificate_number": "COO-240811"
+        },
+        "comparison_matrix": [
+          {
+            "category": "식별번호",
+            "check_item": "lc_number_consistency",
+            "check_item_ko": "L/C 번호 일치성",
+            "result": "match",
+            "lc": "LC-2024-001",
+            "commercial_invoice": "LC-2024-001",
+            "bill_of_lading": "LC-2024-001",
+            "packing_list": "LC-2024-001",
+            "marine_cargo_insurance": "LC-2024-001",
+            "certificate_of_origin": "LC-2024-001"
+          },
+          {
+            "category": "물품 및 조건",
+            "check_item": "goods_description",
+            "check_item_ko": "물품 명세 일치성",
+            "result": "match",
+            "lc": "POLYESTER FABRIC",
+            "commercial_invoice": "POLYESTER FABRIC",
+            "bill_of_lading": "POLYESTER FABRIC",
+            "packing_list": "POLYESTER FABRIC",
+            "marine_cargo_insurance": "POLYESTER FABRIC",
+            "certificate_of_origin": "POLYESTER FABRIC"
+          },
+          {
+            "category": "당사자 정보",
+            "check_item": "buyer_party_consistency",
+            "check_item_ko": "수입자/수하인 정보 일치성",
+            "result": "unclear",
+            "lc": "ABC IMPORT CO., LTD.",
+            "commercial_invoice": "ABC IMPORT CO., LTD.",
+            "bill_of_lading": "TO ORDER OF ABC BANK",
+            "packing_list": "ABC IMPORT CO., LTD.",
+            "marine_cargo_insurance": "ABC IMPORT CO., LTD.",
+            "certificate_of_origin": "ABC IMPORT CO., LTD."
+          }
+        ],
+        "check_item_evidence": [
+          {
+            "check_item": "lc_number_consistency",
+            "documents": {
+              "lc": {
+                "field_name": "lc_number",
+                "value": "LC-2024-001"
+              },
+              "commercial_invoice": {
+                "field_name": "lc_number",
+                "value": "LC-2024-001"
+              },
+              "bill_of_lading": {
+                "field_name": "lc_number",
+                "value": "LC-2024-001"
+              },
+              "packing_list": {
+                "field_name": "lc_number",
+                "value": "LC-2024-001"
+              },
+              "marine_cargo_insurance": {
+                "field_name": "lc_number",
+                "value": "LC-2024-001"
+              },
+              "certificate_of_origin": {
+                "field_name": "lc_number",
+                "value": "LC-2024-001"
+              }
+            }
+          },
+          {
+            "check_item": "goods_description",
+            "documents": {
+              "lc": {
+                "field_name": "goods_summary",
+                "value": "POLYESTER FABRIC"
+              },
+              "commercial_invoice": {
+                "field_name": "line_items.product_name",
+                "value": "POLYESTER FABRIC"
+              },
+              "bill_of_lading": {
+                "field_name": "cargo_details.cargo_description",
+                "value": "POLYESTER FABRIC"
+              },
+              "packing_list": {
+                "field_name": "line_items.product_name",
+                "value": "POLYESTER FABRIC"
+              },
+              "marine_cargo_insurance": {
+                "field_name": "insured_goods_summary",
+                "value": "POLYESTER FABRIC"
+              },
+              "certificate_of_origin": {
+                "field_name": "goods_summary",
+                "value": "POLYESTER FABRIC"
+              }
+            }
+          },
+          {
+            "check_item": "buyer_party_consistency",
+            "documents": {
+              "lc": {
+                "field_name": "applicant_name",
+                "value": "ABC IMPORT CO., LTD."
+              },
+              "commercial_invoice": {
+                "field_name": "buyer_name",
+                "value": "ABC IMPORT CO., LTD."
+              },
+              "bill_of_lading": {
+                "field_name": "consignee_name",
+                "value": "TO ORDER OF ABC BANK"
+              },
+              "packing_list": {
+                "field_name": "buyer_name",
+                "value": "ABC IMPORT CO., LTD."
+              },
+              "marine_cargo_insurance": {
+                "field_name": "insured_beneficiary_name",
+                "value": "ABC IMPORT CO., LTD."
+              },
+              "certificate_of_origin": {
+                "field_name": "importer_name",
+                "value": "ABC IMPORT CO., LTD."
+              }
+            }
+          }
+        ]
+      },
+      "human_summary": "서류 세트는 전반적으로 연결되지만 일부 항목은 추가 검토가 필요합니다. L/C 번호와 물품 명세는 대체로 일치합니다. 다만 B/L 수하인 표기는 은행 지시형 표현으로 보여 보수적 검토가 필요합니다. 날짜 흐름은 인보이스 이후 선적이 진행된 것으로 보입니다."
+    }
+  }
+}

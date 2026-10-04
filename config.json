@@ -1,8 +1,8 @@
 {
   "baseUrl": "https://api.upstage.ai/v2",
   "workerUrl": "https://bong.gehunmin19.workers.dev",
-  "agentId": "agt_EpTRLGpvzaoGjJEEyPcWN8",
-  "configId": "",
+  "agentId": "agt_hYy33EbPU93zggAb6W9z3G",
+  "configId": "11",
   "pollIntervalMs": 2500,
   "filePurpose": "user_data",
   "defaultApiKey": "up_Dd09X7ZhAFYvYX2CUR7tyCy1S3vRw"

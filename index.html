@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>신용장 서류 일치성 점검</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="./styles.css?v=20260914_12" />
+  <link rel="stylesheet" href="./styles.css?v=20260930_v3" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
+
 <body>
   <div class="container">
     <header class="page-header">
@@ -19,6 +26,12 @@
         <p class="subtext">무역 서류(LC, Invoice, B/L, Packing List, Insurance, COO) 일치성 자동 검증 대시보드</p>
       </div>
       <div class="header-actions">
+        <button id="forceRefreshBtn" class="btn force-refresh-btn" type="button" title="모바일 브라우저 캐시를 완전히 비우고 최신 버전으로 새로고침합니다">
+          <i class="bi bi-arrow-clockwise"></i> <span>캐시 새로고침</span>
+        </button>
+        <button id="openDocViewerBtn" class="btn btn-primary doc-viewer-trigger-btn" type="button" title="원본 PDF 서류를 열고 바운딩 박스를 확인합니다">
+          <i class="bi bi-file-earmark-pdf-fill"></i> <span>원본 서류 뷰어</span>
+        </button>
         <button id="themeToggleBtn" class="theme-toggle-btn" type="button" aria-label="테마 전환">
           <span id="themeIcon"><i class="bi bi-sun-fill"></i></span> <span id="themeLabel">밝은 화면</span>
         </button>
@@ -48,13 +61,14 @@
               <div class="label" style="margin-top: 14px;">
                 <span>Cloudflare Worker 프록시 URL</span>
               </div>
-              <input id="workerUrl" class="input" type="text" value="https://bong.gehunmin19.workers.dev" placeholder="https://bong.gehunmin19.workers.dev" />
+              <input id="workerUrl" class="input" type="text" value="https://bong.gehunmin19.workers.dev"
+                placeholder="https://bong.gehunmin19.workers.dev" />
 
               <div class="label" style="margin-top: 14px;">
                 <span>Config ID</span>
-                <span class="label-hint">공란 시 최신버전 자동 적용</span>
+                <span class="label-hint">공란 시 최신버전(11) 자동 적용</span>
               </div>
-              <input id="configId" class="input" type="text" value="" placeholder="최신 버전 사용 (기본값: 공란)" />
+              <input id="configId" class="input" type="text" value="11" placeholder="11" />
             </div>
           </details>
 
@@ -73,19 +87,21 @@
           </div>
           <select id="sampleSelect" class="select sample-select-combo">
             <option value="">-- 샘플 데이터선택 (클릭) --</option>
-            <option value="1">1️⃣ 실제샘플1 (기본 무역서류 세트)</option>
-            <option value="2">2️⃣ 실제샘플2 (L/C미제출 및 번호이슈)</option>
-            <option value="3">3️⃣ 가상Match샘플 (서류 정상 수용)</option>
-            <option value="4">4️⃣ 가상MisMatch샘플 (양하항·수량 불일치)</option>
-            <option id="customSampleOption" value="5" style="display: none;">5️⃣ ⭐ 내 지정 커스텀 샘플 (저장됨)</option>
+            <option value="1">1️⃣ 실제샘플1 : 코오롱인더스트리 (PDF 12p)</option>
+            <option value="2">2️⃣ 실제샘플2 : 현대로템 (PDF 10p)</option>
+            <option value="3">3️⃣ 가상Match샘플 (서류 정상 수용, PDF 6p)</option>
+            <option value="4">4️⃣ 가상MisMatch샘플 (양하항·수량 불일치, PDF 6p)</option>
           </select>
+
 
           <div id="fileInfo" class="file-info">선택된 파일 없음</div>
 
           <!-- Single line button row -->
           <div class="button-row-single">
-            <button id="runBtn" class="btn btn-primary btn-flex" type="button"><i class="bi bi-rocket-takeoff-fill"></i> 점검 실행</button>
-            <button id="clearBtn" class="btn btn-ghost btn-flex" type="button"><i class="bi bi-arrow-clockwise"></i> 초기화</button>
+            <button id="runBtn" class="btn btn-primary btn-flex" type="button"><i class="bi bi-rocket-takeoff-fill"></i>
+              점검 실행</button>
+            <button id="clearBtn" class="btn btn-ghost btn-flex" type="button"><i class="bi bi-arrow-clockwise"></i>
+              초기화</button>
           </div>
         </div>
 
@@ -157,13 +173,15 @@
           <div class="table-card-header">
             <h2><i class="bi bi-table"></i> 무역서류 일치성 상세 교차 비교표</h2>
             <div class="view-toggle-group">
-              <button id="viewCardBtn" class="btn-toggle active" type="button"><i class="bi bi-grid-fill"></i> 카드형</button>
-              <button id="viewTableBtn" class="btn-toggle" type="button"><i class="bi bi-layout-three-columns"></i> 테이블형</button>
+              <button id="viewCardBtn" class="btn-toggle active" type="button"><i class="bi bi-grid-fill"></i>
+                카드형</button>
+              <button id="viewTableBtn" class="btn-toggle" type="button"><i class="bi bi-layout-three-columns"></i>
+                테이블형</button>
             </div>
           </div>
 
           <p class="table-desc">LC, Invoice, B/L, Packing List, Insurance, COO 등 6개 주요 수입 서류 간의 세부 항목별 일치 여부 비교</p>
-          
+
           <!-- Mobile Friendly Cards Container -->
           <div id="comparisonCardsContainer" class="mobile-cards-grid">
             <div class="empty-cell">결과 없음</div>
@@ -192,11 +210,12 @@
           <summary class="raw-json-summary">
             <span><i class="bi bi-code-slash"></i> 개발자용 Raw JSON 결과 보기</span>
           </summary>
-          
+
           <div class="json-action-bar">
-            <button id="copyJsonBtn" class="btn btn-secondary btn-sm" type="button"><i class="bi bi-clipboard-check"></i> JSON 전체 복사</button>
-            <button id="downloadJsonBtn" class="btn btn-secondary btn-sm" type="button"><i class="bi bi-download"></i> 샘플 JSON 파일 다운로드</button>
-            <button id="setAsSampleBtn" class="btn btn-primary btn-sm" type="button"><i class="bi bi-star-fill"></i> 내 결과 샘플로 지정</button>
+            <button id="copyJsonBtn" class="btn btn-secondary btn-sm" type="button"><i
+                class="bi bi-clipboard-check"></i> JSON 전체 복사</button>
+            <button id="downloadJsonBtn" class="btn btn-secondary btn-sm" type="button"><i class="bi bi-download"></i>
+              샘플 JSON 파일 다운로드</button>
           </div>
 
           <pre id="rawJson" class="raw-json">결과 없음</pre>
@@ -205,6 +224,94 @@
     </main>
   </div>
 
-  <script src="./app.js?v=20260914_12"></script>
+  <!-- 🌟 문서 뷰어 배경 딤 (모바일 터치 닫기 지원) 🌟 -->
+  <div id="docViewerBackdrop" class="doc-viewer-backdrop" style="display: none;"></div>
+
+  <!-- 🌟 문서 뷰어 모달리스 플로팅 윈도우 (Modeless Draggable & Resizable Window) 🌟 -->
+  <div id="docViewerFloating" class="doc-viewer-floating" style="display: none;">
+    <!-- 모바일 드래그/스와이프 다운 힌트 바 -->
+    <div class="mobile-swipe-handle-bar" id="mobileSwipeHandleBar">
+      <div class="swipe-pill"></div>
+    </div>
+
+    <!-- 팝업 상단 툴바 헤더 (드래그 핸들 역할) -->
+    <div class="doc-viewer-header" id="docViewerHeader">
+      <div class="doc-viewer-header-top">
+        <div class="doc-viewer-title-group">
+          <span class="drag-grip-icon" title="헤더를 드래그하여 창 이동"><i class="bi bi-grip-vertical"></i></span>
+          <span class="doc-badge" id="viewerDocBadge"><i class="bi bi-file-earmark-pdf-fill"></i> 코오롱인더스트리</span>
+          <h3 id="viewerDocTitle">상업송장 (COMMERCIAL INVOICE)</h3>
+          <span class="page-indicator" id="viewerPageIndicator">Page 3 / 12</span>
+        </div>
+
+        <!-- 상단 닫기 및 윈도우 컨트롤 (모바일에서도 항상 우상단 고정 노출) -->
+        <div class="window-control-group header-actions">
+          <button id="viewerDockBtn" class="tool-btn btn-win-ctl" type="button" title="우측 분할 도킹 위치로 리셋"><i class="bi bi-layout-split"></i></button>
+          <button id="viewerMaxBtn" class="tool-btn btn-win-ctl" type="button" title="최대화 / 이전 크기 토글"><i class="bi bi-arrows-fullscreen"></i></button>
+          <button id="viewerCloseBtn" class="tool-btn btn-close-modal" type="button" title="닫기 (ESC)"><i class="bi bi-x-lg"></i></button>
+        </div>
+      </div>
+      
+      <div class="doc-viewer-toolbar">
+        <!-- 페이지 이동 -->
+        <div class="toolbar-btn-group">
+          <button id="viewerPrevPageBtn" class="tool-btn" type="button" title="이전 페이지 (PageUp)"><i class="bi bi-chevron-left"></i></button>
+          <span class="page-jump-box">
+            <input type="number" id="viewerPageInput" min="1" max="12" value="3" /> / <span id="viewerTotalPages">12</span>
+          </span>
+          <button id="viewerNextPageBtn" class="tool-btn" type="button" title="다음 페이지 (PageDown)"><i class="bi bi-chevron-right"></i></button>
+        </div>
+
+        <!-- 확대/축소 -->
+        <div class="toolbar-btn-group">
+          <button id="viewerZoomOutBtn" class="tool-btn" type="button" title="축소 (-)"><i class="bi bi-zoom-out"></i></button>
+          <span id="viewerZoomLabel" class="zoom-level">100%</span>
+          <button id="viewerZoomInBtn" class="tool-btn" type="button" title="확대 (+)"><i class="bi bi-zoom-in"></i></button>
+          <button id="viewerFitWidthBtn" class="tool-btn" type="button" title="너비 맞춤"><i class="bi bi-arrows-expand"></i></button>
+        </div>
+
+        <!-- 하이라이트 토글 -->
+        <button id="viewerToggleHighlightBtn" class="tool-btn btn-highlight-active" type="button" title="바운딩 박스 표시 On/Off">
+          <i class="bi bi-bounding-box"></i> <span>하이라이트 ON</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 서류별 빠른 이동 탭 네비게이션 -->
+    <div class="doc-quick-nav" id="docQuickNav">
+      <!-- JS로 동적 생성 -->
+    </div>
+
+    <!-- 타겟 필드 하이라이트 배너 -->
+    <div id="viewerHighlightBanner" class="viewer-highlight-banner" style="display: none;">
+      <i class="bi bi-geo-alt-fill"></i>
+      <span id="viewerHighlightTargetText">선택 항목: L/C 번호 (M0201602EU02535)</span>
+    </div>
+
+    <!-- 팝업 본문: PDF 캔버스 & 하이라이트 레이어 -->
+    <div class="doc-viewer-body" id="docViewerBody">
+      <div class="doc-page-stage" id="docPageStage">
+        <canvas id="pdfCanvas" class="pdf-canvas"></canvas>
+        <div id="highlightLayer" class="highlight-overlay-layer"></div>
+      </div>
+      <div id="viewerLoadingSpinner" class="viewer-spinner" style="display: none;">
+        <div class="spinner-icon"><i class="bi bi-arrow-repeat"></i></div>
+        <span>문서 페이지 렌더링 중...</span>
+      </div>
+    </div>
+
+    <!-- 모바일 전용 하단 고정 닫기 바 -->
+    <div id="viewerMobileBottomBar" class="viewer-mobile-bottom-bar">
+      <button id="viewerMobileCloseBtn" class="btn-mobile-close-action" type="button">
+        <i class="bi bi-x-circle-fill"></i>
+        <span>문서 뷰어 닫기</span>
+      </button>
+    </div>
+
+    <!-- 리사이즈 핸들 (우하단, 데스크톱용) -->
+    <div class="doc-viewer-resizer" id="docViewerResizer" title="드래그하여 크기 조절"></div>
+  </div>
+
+  <script src="./app.js?v=20260930_v3"></script>
 </body>
 </html>

@@ -1,29 +1,1498 @@
 {
-  "id": "job_fyCSxmk8D84cgc7bp5r7s7",
-  "object": "response",
-  "created_at": 1789205857,
-  "status": "completed",
-  "background": false,
-  "error": null,
-  "model": "agt_EpTRLGpvzaoGjJEEyPcWN8",
-  "usage": {
-    "input_tokens": 33972,
-    "output_tokens": 10712,
-    "total_tokens": 44684
-  },
-  "output": [
-    {
-      "id": "852527d9-46e1-5c5d-9861-3e9145c4fb0a",
-      "type": "message",
-      "status": "completed",
-      "role": "assistant",
-      "model": "Instruct - final_trade_document_set_review_api_v1",
-      "content": [
+  "response_version": "1.0",
+  "job_id": "job_example_001",
+  "workflow_id": "agt_hYy33EbPU93zggAb6W9z3G",
+  "instruct_result": {
+    "structured_result": {
+      "overall_status": "review_required",
+      "overall_alert_level": "warning",
+      "one_line_summary": "주요 운송·상업서류는 구비되었으나 L/C 원본 및 원산지증명서 부재로 최종 컴플라이언스 판단에는 추가 검토가 필요합니다.",
+      "recommended_action": "L/C 원본 조건과 원산지증명서 요구 여부를 우선 확인하고, 문서 간 식별번호·B/L 번호·선적항·양하항·지급조건·중량·CBM·선적일 흐름을 재점검하십시오.",
+      "document_presence": {
+        "lc": false,
+        "commercial_invoice": true,
+        "bill_of_lading": true,
+        "packing_list": true,
+        "marine_cargo_insurance": true,
+        "certificate_of_origin": false
+      },
+      "document_keys": {
+        "lc_number": "M0201410ES04828",
+        "invoice_number": "A4631-L032-61",
+        "bl_number": "RKOE076",
+        "policy_certificate_number": "15-H0065622",
+        "certificate_number": "-"
+      },
+      "date_checks": {
+        "insurance_policy_issue_date": "2015-05-01",
+        "invoice_date": "2015-05-07",
+        "packing_list_date": "2015-05-07",
+        "bl_shipment_date": "",
+        "bl_on_board_date": "2015-05-07",
+        "latest_shipment_date": "",
+        "lc_issue_date": "",
+        "certificate_issue_date": "",
+        "date_sequence_status": "unclear",
+        "date_sequence_notes": "확인 가능한 날짜 흐름은 보험증권 발행일 2015-05-01, 송장일자 2015-05-07, 패킹리스트 일자 2015-05-07, 선하증권 본선적재일 2015-05-07, 도착통지일 2015-05-18 순입니다. 다만 L/C 발행일과 최종선적기한이 없어 기한 적합성은 최종 확정할 수 없습니다."
+      },
+      "comparison_matrix": [
         {
-          "type": "output_text",
-          "text": "{\"structured_result\":{\"overall_status\":\"review_required\",\"overall_alert_level\":\"warning\",\"one_line_summary\":\"상업송장, B/L, 패킹리스트, 보험증권, 선적서류 도착통지는 확인되었으나 L/C 원문과 원산지증명서 부재 및 L/C 번호 표기 차이로 추가 검토가 필요합니다.\",\"recommended_action\":\"L/C 원문을 확보하여 M0201410ES04828와 M0201410ES04828-053의 동일성 및 최종선적기한을 확인하고, COO 필요 여부와 보험조건 충족 여부를 재검토하십시오.\",\"document_presence\":{\"lc\":false,\"commercial_invoice\":true,\"bill_of_lading\":true,\"packing_list\":true,\"marine_cargo_insurance\":true,\"certificate_of_origin\":false},\"document_keys\":{\"lc_number\":\"M0201410ES04828 / M0201410ES04828-053\",\"invoice_number\":\"A4631-L032-61\",\"bl_number\":\"RKOE076\",\"policy_certificate_number\":\"15-H0065622\",\"certificate_number\":\"-\"},\"date_checks\":{\"insurance_policy_issue_date\":\"2015-05-01\",\"invoice_date\":\"2015-05-07\",\"packing_list_date\":\"2015-05-07\",\"bl_shipment_date\":\"2015-05-07\",\"bl_on_board_date\":\"2015-05-07\",\"latest_shipment_date\":\"\",\"lc_issue_date\":\"\",\"certificate_issue_date\":\"\",\"date_sequence_status\":\"missing\",\"date_sequence_notes\":\"확인 가능한 날짜 흐름은 보험증권 발행일 2015-05-01 이후 송장 발행일 2015-05-07, 패킹리스트 발급일 2015-05-07, B/L 선적일 및 On Board일 2015-05-07, 선적서류 도착통지일 2015-05-18 순입니다. 다만 L/C 원문이 없어 L/C 발행일과 최종선적기한을 확인할 수 없어 완전한 적합성 판단은 보류가 필요합니다.\"},\"comparison_matrix\":[{\"category\":\"서류 구비 현황\",\"check_item\":\"file_presence\",\"check_item_ko\":\"서류 구비 현황\",\"result\":\"missing\",\"lc\":\"missing\",\"commercial_invoice\":\"present\",\"bill_of_lading\":\"present\",\"packing_list\":\"present\",\"marine_cargo_insurance\":\"present\",\"certificate_of_origin\":\"missing\"},{\"category\":\"서류 구비 현황\",\"check_item\":\"required_documents_presence\",\"check_item_ko\":\"L/C 요구서류 충족 여부\",\"result\":\"unclear\",\"lc\":\"missing\",\"commercial_invoice\":\"present\",\"bill_of_lading\":\"present\",\"packing_list\":\"present\",\"marine_cargo_insurance\":\"present\",\"certificate_of_origin\":\"missing\"},{\"category\":\"식별번호\",\"check_item\":\"lc_number_consistency\",\"check_item_ko\":\"L/C 번호 일치성\",\"result\":\"mismatch\",\"lc\":\"missing\",\"commercial_invoice\":\"M0201410ES04828\",\"bill_of_lading\":\"M0201410ES04828\",\"packing_list\":\"M0201410ES04828\",\"marine_cargo_insurance\":\"M0201410ES04828\",\"certificate_of_origin\":\"missing\"},{\"category\":\"식별번호\",\"check_item\":\"invoice_number_consistency\",\"check_item_ko\":\"송장 번호 일치성\",\"result\":\"match\",\"lc\":\"not_available\",\"commercial_invoice\":\"A4631-L032-61\",\"bill_of_lading\":\"not_available\",\"packing_list\":\"A4631-L032-61\",\"marine_cargo_insurance\":\"A4631-L032-61\",\"certificate_of_origin\":\"missing\"},{\"category\":\"당사자 정보\",\"check_item\":\"seller_party_consistency\",\"check_item_ko\":\"수출자/송하인 정보 일치성\",\"result\":\"match\",\"lc\":\"missing\",\"commercial_invoice\":\"MITSUBISHI ELECTRIC CORPORATION\",\"bill_of_lading\":\"MITSUBISHI ELECTRIC CORPORATION\",\"packing_list\":\"MITSUBISHI ELECTRIC CORPORATION\",\"marine_cargo_insurance\":\"MITSUBISHI ELECTRIC CORPORATION\",\"certificate_of_origin\":\"missing\"},{\"category\":\"당사자 정보\",\"check_item\":\"buyer_party_consistency\",\"check_item_ko\":\"수입자/수하인 정보 일치성\",\"result\":\"unclear\",\"lc\":\"missing\",\"commercial_invoice\":\"Hyundai Rotem Company\",\"bill_of_lading\":\"To the order of The Korea Development Bank / Hyundai Rotem notify\",\"packing_list\":\"Hyundai Rotem Company\",\"marine_cargo_insurance\":\"not_available\",\"certificate_of_origin\":\"missing\"},{\"category\":\"물품 및 조건\",\"check_item\":\"goods_description\",\"check_item_ko\":\"물품 명세 일치성\",\"result\":\"match\",\"lc\":\"missing\",\"commercial_invoice\":\"Static Converter / Battery Charger, Main Propulsion Electrical Equipment\",\"bill_of_lading\":\"Main Propulsion Electrical Equipment\",\"packing_list\":\"Main Propulsion Electrical Equipment\",\"marine_cargo_insurance\":\"Main Propulsion Electrical Equipment\",\"certificate_of_origin\":\"missing\"},{\"category\":\"물품 및 조건\",\"check_item\":\"package_count_consistency\",\"check_item_ko\":\"포장 수량 일치성\",\"result\":\"match\",\"lc\":\"missing\",\"commercial_invoice\":\"4 Cases\",\"bill_of_lading\":\"4 Cases\",\"packing_list\":\"4 PKGS / 4 Cases\",\"marine_cargo_insurance\":\"4 Cases\",\"certificate_of_origin\":\"missing\"},{\"category\":\"물품 및 조건\",\"check_item\":\"gross_weight_consistency\",\"check_item_ko\":\"총중량 일치성\",\"result\":\"match\",\"lc\":\"missing\",\"commercial_invoice\":\"field_missing\",\"bill_of_lading\":\"4756 KGS\",\"packing_list\":\"4756 KGS\",\"marine_cargo_insurance\":\"field_missing\",\"certificate_of_origin\":\"missing\"},{\"category\":\"물품 및 조건\",\"check_item\":\"measurement_cbm_consistency\",\"check_item_ko\":\"CBM 일치성\",\"result\":\"match\",\"lc\":\"missing\",\"commercial_invoice\":\"field_missing\",\"bill_of_lading\":\"22.948 CBM\",\"packing_list\":\"22.948 CBM\",\"marine_cargo_insurance\":\"field_missing\",\"certificate_of_origin\":\"missing\"},{\"category\":\"날짜 및 선적\",\"check_item\":\"port_of_loading\",\"check_item_ko\":\"선적항 일치성\",\"result\":\"match\",\"lc\":\"missing\",\"commercial_invoice\":\"Shimonoseki seaport, Japan\",\"bill_of_lading\":\"SHIMONOSEKI\",\"packing_list\":\"Shimonoseki seaport, Japan\",\"marine_cargo_insurance\":\"SHIMONOSEKI SEAPORT, JAPAN\",\"certificate_of_origin\":\"missing\"},{\"category\":\"날짜 및 선적\",\"check_item\":\"port_of_discharge\",\"check_item_ko\":\"양하항 일치성\",\"result\":\"match\",\"lc\":\"missing\",\"commercial_invoice\":\"Busan seaport, South Korea\",\"bill_of_lading\":\"BUSAN SEAPORT, SOUTH KOREA\",\"packing_list\":\"Busan seaport, South Korea\",\"marine_cargo_insurance\":\"BUSAN SEAPORT, SOUTH KOREA\",\"certificate_of_origin\":\"missing\"},{\"category\":\"날짜 및 선적\",\"check_item\":\"bl_shipment_date_vs_latest_shipment\",\"check_item_ko\":\"선적일 vs 최종선적기한\",\"result\":\"missing\",\"lc\":\"missing\",\"commercial_invoice\":\"not_available\",\"bill_of_lading\":\"2015-05-07\",\"packing_list\":\"2015-05-07\",\"marine_cargo_insurance\":\"2015-05-07 voyage\",\"certificate_of_origin\":\"missing\"},{\"category\":\"날짜 및 선적\",\"check_item\":\"insurance_policy_issue_date_vs_shipment_date\",\"check_item_ko\":\"보험증권 발행일 vs 선적일\",\"result\":\"match\",\"lc\":\"missing\",\"commercial_invoice\":\"not_available\",\"bill_of_lading\":\"2015-05-07\",\"packing_list\":\"not_available\",\"marine_cargo_insurance\":\"2015-05-01\",\"certificate_of_origin\":\"missing\"},{\"category\":\"날짜 및 선적\",\"check_item\":\"date_flow_timeline\",\"check_item_ko\":\"문서 간 날짜 흐름\",\"result\":\"unclear\",\"lc\":\"missing\",\"commercial_invoice\":\"2015-05-07\",\"bill_of_lading\":\"2015-05-07\",\"packing_list\":\"2015-05-07\",\"marine_cargo_insurance\":\"2015-05-01\",\"certificate_of_origin\":\"missing\"},{\"category\":\"물품 및 조건\",\"check_item\":\"insurance_amount_vs_lc_requirement\",\"check_item_ko\":\"보험금액 vs L/C 요구조건\",\"result\":\"unclear\",\"lc\":\"missing\",\"commercial_invoice\":\"JPY 8,941,748\",\"bill_of_lading\":\"not_available\",\"packing_list\":\"not_available\",\"marine_cargo_insurance\":\"JPY 14,521,000\",\"certificate_of_origin\":\"missing\"},{\"category\":\"물품 및 조건\",\"check_item\":\"incoterms_consistency\",\"check_item_ko\":\"인도조건 일치성\",\"result\":\"match\",\"lc\":\"missing\",\"commercial_invoice\":\"CIF Incoterms 2010\",\"bill_of_lading\":\"not_available\",\"packing_list\":\"CIF Incoterms 2010\",\"marine_cargo_insurance\":\"CIF Incoterms 2010\",\"certificate_of_origin\":\"missing\"}],\"document_checklists\":{\"lc\":[{\"item\":\"신용장 유효기한 (Expiry Date)\",\"status\":\"warning\",\"details\":\"L/C 원문이 제공되지 않아 유효기한을 확인할 수 없습니다.\"},{\"item\":\"최종 선적기한 (Latest Shipment)\",\"status\":\"warning\",\"details\":\"L/C 원문 부재로 최종선적기한 확인이 불가합니다. 도착통지서에는 결제기한만 확인됩니다.\"},{\"item\":\"분할선적 허용 여부 (Partial Shipment)\",\"status\":\"warning\",\"details\":\"L/C 원문이 없어 분할선적 허용 여부를 판단할 수 없습니다.\"}],\"commercial_invoice\":[{\"item\":\"L/C 번호 기재 여부\",\"status\":\"pass\",\"details\":\"송장에 L/C 번호 M0201410ES04828이 기재되어 있습니다.\"},{\"item\":\"발행자 서명/날인 유무\",\"status\":\"pass\",\"details\":\"송장에 발행자명과 서명권자 표기가 확인됩니다.\"},{\"item\":\"인도조건(Incoterms) 명시\",\"status\":\"pass\",\"details\":\"CIF Incoterms 2010 조건이 기재되어 있습니다.\"}],\"bill_of_lading\":[{\"item\":\"Clean On Board 본선적재 표기\",\"status\":\"pass\",\"details\":\"Laden on Board the Vessel 및 일자 2015-05-07 표기가 확인됩니다.\"},{\"item\":\"운임 지급 조건 (Freight Prepaid/Collect)\",\"status\":\"pass\",\"details\":\"Freight Prepaid As Arranged로 확인됩니다.\"},{\"item\":\"송하인/수하인 지정 적합성\",\"status\":\"warning\",\"details\":\"송하인은 일관되나 수하인이 To the Order of The Korea Development Bank 형식이므로 L/C 조건과의 정합성 추가 확인이 필요합니다.\"}],\"packing_list\":[{\"item\":\"총중량(Gross Wt) vs 순중량(Net Wt) 산정\",\"status\":\"pass\",\"details\":\"총 순중량 3,414 KGS, 총중량 4,756 KGS로 산정값이 제시되어 있습니다.\"},{\"item\":\"CBM 및 포장 개수 일치\",\"status\":\"pass\",\"details\":\"총 4포장, 22.948 CBM으로 B/L과 수치가 일치합니다.\"}],\"marine_cargo_insurance\":[{\"item\":\"부보금액 충족 (CIF 110% 이상)\",\"status\":\"warning\",\"details\":\"보험금액은 JPY 14,521,000으로 확인되나 L/C 요구 부보조건이 없어 최종 충족 여부는 추가 확인이 필요합니다.\"},{\"item\":\"보험증권 발행일 (선적일 이전 여부)\",\"status\":\"pass\",\"details\":\"보험증권 발행일은 2015-05-01이며 선적일 2015-05-07 이전입니다.\"},{\"item\":\"원산지 국명 및 원산지 결정기준 표기\",\"status\":\"warning\",\"details\":\"COO 문서가 제공되지 않아 확인할 수 없습니다.\"},{\"item\":\"발급기관 서명 및 인장\",\"status\":\"warning\",\"details\":\"COO 문서 부재로 발급기관 서명 및 인장 확인이 불가합니다.\"}]},\"discrepancy_candidates\":[{\"check_item\":\"lc_number_consistency\",\"issue_type\":\"actual_mismatch\",\"severity\":\"warning\",\"status\":\"mismatch\",\"document_pair\":[\"other_document\",\"commercial_invoice\",\"bill_of_lading\",\"packing_list\",\"marine_cargo_insurance\"],\"compared_values\":{\"lc\":\"\",\"commercial_invoice\":\"M0201410ES04828\",\"bill_of_lading\":\"M0201410ES04828\",\"packing_list\":\"M0201410ES04828\",\"marine_cargo_insurance\":\"M0201410ES04828\",\"certificate_of_origin\":\"\"},\"note\":\"선적서류 도착통지에는 M0201410ES04828-053이 기재되고 나머지 핵심 선적서류에는 M0201410ES04828이 기재되어 suffix 차이가 존재합니다.\",\"recommended_follow_up\":\"L/C 원문과 은행 접수기록을 대조하여 동일 신용장 하위번호 또는 관리번호 여부를 확인하십시오.\"},{\"check_item\":\"required_documents_presence\",\"issue_type\":\"document_missing\",\"severity\":\"warning\",\"status\":\"missing\",\"document_pair\":[\"lc\",\"certificate_of_origin\"],\"compared_values\":{\"lc\":\"missing\",\"commercial_invoice\":\"present\",\"bill_of_lading\":\"present\",\"packing_list\":\"present\",\"marine_cargo_insurance\":\"present\",\"certificate_of_origin\":\"missing\"},\"note\":\"L/C 원문과 원산지증명서가 입력 세트에서 확인되지 않습니다.\",\"recommended_follow_up\":\"서류 인수 전 L/C 원문과 COO 필요 여부를 확인하고 미제출 시 보완 요청하십시오.\"},{\"check_item\":\"bl_shipment_date_vs_latest_shipment\",\"issue_type\":\"field_missing\",\"severity\":\"warning\",\"status\":\"missing\",\"document_pair\":[\"lc\",\"bill_of_lading\"],\"compared_values\":{\"lc\":\"latest shipment missing\",\"commercial_invoice\":\"\",\"bill_of_lading\":\"2015-05-07\",\"packing_list\":\"\",\"marine_cargo_insurance\":\"\",\"certificate_of_origin\":\"\"},\"note\":\"B/L 선적일은 확인되나 최종선적기한이 없어 UCP 기준의 기한 충족 판정이 불가합니다.\",\"recommended_follow_up\":\"L/C 원문에서 latest shipment 조항을 확인하십시오.\"},{\"check_item\":\"buyer_party_consistency\",\"issue_type\":\"reading_unclear\",\"severity\":\"info\",\"status\":\"unclear\",\"document_pair\":[\"commercial_invoice\",\"bill_of_lading\",\"packing_list\"],\"compared_values\":{\"lc\":\"\",\"commercial_invoice\":\"Hyundai Rotem Company\",\"bill_of_lading\":\"To the order of The Korea Development Bank / Notify Hyundai Rotem Company\",\"packing_list\":\"Hyundai Rotem Company\",\"marine_cargo_insurance\":\"\",\"certificate_of_origin\":\"\"},\"note\":\"B/L 수하인이 은행지시식으로 기재되어 있어 직접 불일치로 단정하기보다 L/C 조건상 허용 여부 확인이 필요합니다.\",\"recommended_follow_up\":\"L/C의 consignee 지시문구와 은행지시식 선하증권 허용 여부를 확인하십시오.\"},{\"check_item\":\"insurance_amount_vs_lc_requirement\",\"issue_type\":\"field_missing\",\"severity\":\"info\",\"status\":\"unclear\",\"document_pair\":[\"commercial_invoice\",\"marine_cargo_insurance\",\"lc\"],\"compared_values\":{\"lc\":\"insurance requirement missing\",\"commercial_invoice\":\"JPY 8,941,748\",\"bill_of_lading\":\"\",\"packing_list\":\"\",\"marine_cargo_insurance\":\"JPY 14,521,000\",\"certificate_of_origin\":\"\"},\"note\":\"보험금액은 확인되나 L/C의 요구 부보비율 또는 약관 요구가 없어 적합성 확정이 어렵습니다.\",\"recommended_follow_up\":\"L/C 보험조건과 보험증권의 담보조건 및 부보금액을 대조하십시오.\"}],\"checklist_results\":[{\"check_name\":\"서류 세트 필수문서 확보 여부\",\"result\":\"missing\",\"alert_level\":\"warning\",\"issue_type\":\"document_missing\",\"evidence_summary\":\"상업송장, B/L, 패킹리스트, 보험증권, 도착통지는 존재하나 L/C 원문과 COO는 확인되지 않습니다.\",\"recommended_follow_up\":\"필수 통제 문서인 L/C 원문을 우선 확보하고 COO 필요 여부를 확인하십시오.\"},{\"check_name\":\"L/C 번호 정합성\",\"result\":\"mismatch\",\"alert_level\":\"warning\",\"issue_type\":\"actual_mismatch\",\"evidence_summary\":\"도착통지서의 L/C 번호는 M0201410ES04828-053이며, 나머지 핵심 선적서류는 M0201410ES04828입니다.\",\"recommended_follow_up\":\"은행 도착통지 번호 체계와 실제 신용장 번호의 관계를 확인하십시오.\"},{\"check_name\":\"물품 및 물류 수치 상호일치\",\"result\":\"match\",\"alert_level\":\"info\",\"issue_type\":\"ok\",\"evidence_summary\":\"품명은 Main Propulsion Electrical Equipment 계열로 연결 가능하며, 포장수량 4 Cases, 총중량 4,756 KGS, CBM 22.948가 B/L과 패킹리스트에서 일치합니다.\",\"recommended_follow_up\":\"실물 인수 전 선적마크와 케이스 번호를 최종 대조하십시오.\"},{\"check_name\":\"날짜 흐름 및 선적 선후관계\",\"result\":\"unclear\",\"alert_level\":\"warning\",\"issue_type\":\"field_missing\",\"evidence_summary\":\"보험증권 발행일은 선적일 이전으로 양호하나 L/C의 발행일과 최종선적기한이 없어 완전한 기일 판정은 불가합니다.\",\"recommended_follow_up\":\"L/C 원문 기준으로 선적기한과 제시기한을 추가 검증하십시오.\"}]},\"human_summary\":\"전체적으로 상업송장, B/L, 패킹리스트, 보험증권, 도착통지는 확보되어 기본적인 선적서류 세트는 갖추어져 있습니다. 다만 L/C 원문과 COO가 없어 서류 적합성의 최종 확정은 어렵습니다. 가장 중요한 이슈는 도착통지서의 L/C 번호가 다른 서류와 달리 suffix가 포함된 형태라는 점입니다. 물품명, 포장수량, 총중량, CBM, 선적항 및 양하항은 대체로 상호 일치합니다. 날짜 흐름은 보험증권 2015-05-01 이후 송장·패킹리스트·B/L이 2015-05-07로 이어져 자연스럽습니다. 또한 도착통지는 2015-05-18로 후행하여 시간 순서상 큰 이상은 없습니다. 그러나 최종선적기한은 확인되지 않아 은행 인수 전 L/C 원문 대조가 필요합니다.\"}"
+          "category": "서류 구비 현황",
+          "check_item": "file_presence",
+          "check_item_ko": "서류 구비 현황",
+          "result": "unclear",
+          "lc": "missing",
+          "commercial_invoice": "present",
+          "bill_of_lading": "present",
+          "packing_list": "present",
+          "marine_cargo_insurance": "present",
+          "certificate_of_origin": "missing"
+        },
+        {
+          "category": "서류 구비 현황",
+          "check_item": "required_documents_presence",
+          "check_item_ko": "L/C 요구서류 충족 여부",
+          "result": "unclear",
+          "lc": "missing",
+          "commercial_invoice": "present",
+          "bill_of_lading": "present",
+          "packing_list": "present",
+          "marine_cargo_insurance": "present",
+          "certificate_of_origin": "missing"
+        },
+        {
+          "category": "식별번호",
+          "check_item": "lc_number_consistency",
+          "check_item_ko": "L/C 번호 일치성",
+          "result": "unclear",
+          "lc": "",
+          "commercial_invoice": "M0201410ES04828",
+          "bill_of_lading": "M0201410ES04828",
+          "packing_list": "M0201410ES04828",
+          "marine_cargo_insurance": "M0201410ES04828",
+          "certificate_of_origin": "",
+          "other_document": "M0201410ES04828-053"
+        },
+        {
+          "category": "식별번호",
+          "check_item": "invoice_number_consistency",
+          "check_item_ko": "송장 번호 일치성",
+          "result": "match",
+          "lc": "",
+          "commercial_invoice": "A4631-L032-61",
+          "bill_of_lading": "",
+          "packing_list": "A4631-L032-61",
+          "marine_cargo_insurance": "A4631-L032-61",
+          "certificate_of_origin": "",
+          "other_document": ""
+        },
+        {
+          "category": "식별번호",
+          "check_item": "bl_number_reference_consistency",
+          "check_item_ko": "B/L 번호 일치성",
+          "result": "match",
+          "lc": "",
+          "commercial_invoice": "",
+          "bill_of_lading": "RKOE076",
+          "packing_list": "",
+          "marine_cargo_insurance": "",
+          "certificate_of_origin": "",
+          "other_document": "RKOE076"
+        },
+        {
+          "category": "당사자 정보",
+          "check_item": "seller_party_consistency",
+          "check_item_ko": "수출자/송하인 정보 일치성",
+          "result": "match",
+          "lc": "",
+          "commercial_invoice": "MITSUBISHI ELECTRIC CORPORATION",
+          "bill_of_lading": "MITSUBISHI ELECTRIC CORPORATION",
+          "packing_list": "MITSUBISHI ELECTRIC CORPORATION",
+          "marine_cargo_insurance": "MITSUBISHI ELECTRIC CORPORATION",
+          "certificate_of_origin": ""
+        },
+        {
+          "category": "당사자 정보",
+          "check_item": "buyer_party_consistency",
+          "check_item_ko": "수입자/수하인 정보 일치성",
+          "result": "unclear",
+          "lc": "",
+          "commercial_invoice": "Hyundai Rotem Company",
+          "bill_of_lading": "TO THE ORDER OF THE KOREA DEVELOPMENT BANK",
+          "packing_list": "Hyundai Rotem Company",
+          "marine_cargo_insurance": "",
+          "certificate_of_origin": ""
+        },
+        {
+          "category": "물품 및 조건",
+          "check_item": "goods_description",
+          "check_item_ko": "물품 명세 일치성",
+          "result": "match",
+          "lc": "",
+          "commercial_invoice": "Static Converter /Battery Charger",
+          "bill_of_lading": "MAIN PROPULSION ELECTRICAL EQUIPMENT FOR DMRC RS10 486 CARS PROPULSION SYSTEMS",
+          "packing_list": "MAIN PROPULSION ELECTRICAL EQUIPMENT",
+          "marine_cargo_insurance": "HYUNDAI ROTEM COMPANY MAIN PROPULSION ELECTRICAL EQUIPMENT FOR DMRC RS10 486 CARS PROPULSION SYSTEMS",
+          "certificate_of_origin": ""
+        },
+        {
+          "category": "물품 및 조건",
+          "check_item": "package_count_consistency",
+          "check_item_ko": "포장 수량 일치성",
+          "result": "match",
+          "lc": "",
+          "commercial_invoice": "4 Cases",
+          "bill_of_lading": "4 CASES",
+          "packing_list": "4 PKGS",
+          "marine_cargo_insurance": "4 CASES 2 SETS",
+          "certificate_of_origin": ""
+        },
+        {
+          "category": "물품 및 조건",
+          "check_item": "gross_weight_consistency",
+          "check_item_ko": "총중량 일치성",
+          "result": "match",
+          "lc": "",
+          "commercial_invoice": "",
+          "bill_of_lading": "",
+          "packing_list": "4756",
+          "marine_cargo_insurance": "",
+          "certificate_of_origin": ""
+        },
+        {
+          "category": "물품 및 조건",
+          "check_item": "measurement_cbm_consistency",
+          "check_item_ko": "CBM 일치성",
+          "result": "match",
+          "lc": "",
+          "commercial_invoice": "",
+          "bill_of_lading": "22.948",
+          "packing_list": "22.948",
+          "marine_cargo_insurance": "",
+          "certificate_of_origin": ""
+        },
+        {
+          "category": "날짜 및 선적",
+          "check_item": "port_of_loading",
+          "check_item_ko": "선적항 일치성",
+          "result": "match",
+          "lc": "",
+          "commercial_invoice": "Shimonoseki seaport, Japan",
+          "bill_of_lading": "SHIMONOSEKI",
+          "packing_list": "Shimonoseki seaport, Japan",
+          "marine_cargo_insurance": "SHIMONOSEKI SEAPORT, JAPAN",
+          "certificate_of_origin": ""
+        },
+        {
+          "category": "날짜 및 선적",
+          "check_item": "port_of_discharge",
+          "check_item_ko": "양하항 일치성",
+          "result": "match",
+          "lc": "",
+          "commercial_invoice": "Busan seaport, South Korea",
+          "bill_of_lading": "BUSAN SEAPORT, SOUTH KOREA",
+          "packing_list": "Busan seaport, South Korea",
+          "marine_cargo_insurance": "BUSAN SEAPORT, SOUTH KOREA",
+          "certificate_of_origin": ""
+        },
+        {
+          "category": "물품 및 조건",
+          "check_item": "payment_terms_consistency",
+          "check_item_ko": "지급조건 일치성",
+          "result": "match",
+          "lc": "",
+          "commercial_invoice": "L/C at sight",
+          "bill_of_lading": "",
+          "packing_list": "L/C at sight",
+          "marine_cargo_insurance": "",
+          "certificate_of_origin": ""
+        },
+        {
+          "category": "물품 및 조건",
+          "check_item": "freight_terms_consistency",
+          "check_item_ko": "운임조건 일치성",
+          "result": "unclear",
+          "lc": "",
+          "commercial_invoice": "",
+          "bill_of_lading": "FREIGHT PREPAID / AS ARRANGED",
+          "packing_list": "",
+          "marine_cargo_insurance": "",
+          "certificate_of_origin": ""
+        },
+        {
+          "category": "날짜 및 선적",
+          "check_item": "bl_shipment_date_vs_latest_shipment",
+          "check_item_ko": "선적일 vs 최종선적기한",
+          "result": "unclear",
+          "lc": "",
+          "commercial_invoice": "",
+          "bill_of_lading": "2015-05-07",
+          "packing_list": "",
+          "marine_cargo_insurance": "",
+          "certificate_of_origin": ""
+        },
+        {
+          "category": "날짜 및 선적",
+          "check_item": "insurance_policy_issue_date_vs_shipment_date",
+          "check_item_ko": "보험증권 발행일 vs 선적일",
+          "result": "match",
+          "lc": "",
+          "commercial_invoice": "",
+          "bill_of_lading": "2015-05-07",
+          "packing_list": "",
+          "marine_cargo_insurance": "2015-05-01",
+          "certificate_of_origin": ""
+        },
+        {
+          "category": "날짜 및 선적",
+          "check_item": "date_flow_timeline",
+          "check_item_ko": "문서 간 날짜 흐름",
+          "result": "unclear",
+          "lc": "",
+          "commercial_invoice": "2015-05-07",
+          "bill_of_lading": "2015-05-07",
+          "packing_list": "2015-05-07",
+          "marine_cargo_insurance": "2015-05-01",
+          "certificate_of_origin": "",
+          "other_document": "2015-05-18"
         }
-      ]
+      ],
+      "discrepancy_candidates": [
+        {
+          "check_item": "file_presence",
+          "issue_type": "document_missing",
+          "severity": "warning",
+          "status": "missing",
+          "document_pair": [
+            "lc",
+            "certificate_of_origin"
+          ],
+          "compared_values": {
+            "lc": "missing",
+            "commercial_invoice": "present",
+            "bill_of_lading": "present",
+            "packing_list": "present",
+            "marine_cargo_insurance": "present",
+            "certificate_of_origin": "missing"
+          },
+          "note": "L/C 원본과 원산지증명서가 입력 세트에서 확인되지 않습니다.",
+          "recommended_follow_up": "L/C 원본과 원산지증명서 제출 필요 여부를 우선 확인하십시오."
+        },
+        {
+          "check_item": "buyer_party_consistency",
+          "issue_type": "reading_unclear",
+          "severity": "warning",
+          "status": "unclear",
+          "document_pair": [
+            "commercial_invoice",
+            "bill_of_lading"
+          ],
+          "compared_values": {
+            "lc": "",
+            "commercial_invoice": "Hyundai Rotem Company",
+            "bill_of_lading": "TO THE ORDER OF THE KOREA DEVELOPMENT BANK",
+            "packing_list": "Hyundai Rotem Company",
+            "marine_cargo_insurance": "",
+            "certificate_of_origin": ""
+          },
+          "note": "B/L 수하인이 은행 지시식으로 기재되어 있어 일반 매수인명과 직접 비교가 어렵습니다.",
+          "recommended_follow_up": "은행 심사 기준상 수하인 표기 허용 여부를 확인하십시오."
+        }
+      ],
+      "check_item_evidence": [
+        {
+          "check_item": "lc_number_consistency",
+          "documents": {
+            "commercial_invoice": {
+              "field_name": "lc_number",
+              "value": "M0201410ES04828"
+            },
+            "bill_of_lading": {
+              "field_name": "lc_number",
+              "value": "M0201410ES04828"
+            },
+            "packing_list": {
+              "field_name": "lc_number",
+              "value": "M0201410ES04828"
+            },
+            "marine_cargo_insurance": {
+              "field_name": "lc_number",
+              "value": "M0201410ES04828"
+            },
+            "other_document": {
+              "field_name": "related_lc_number",
+              "value": "M0201410ES04828-053"
+            }
+          }
+        },
+        {
+          "check_item": "invoice_number_consistency",
+          "documents": {
+            "commercial_invoice": {
+              "field_name": "invoice_number",
+              "value": "A4631-L032-61"
+            },
+            "marine_cargo_insurance": {
+              "field_name": "invoice_number",
+              "value": "A4631-L032-61"
+            },
+            "other_document": {
+              "field_name": "related_invoice_number",
+              "value": ""
+            }
+          }
+        },
+        {
+          "check_item": "bl_number_reference_consistency",
+          "documents": {
+            "bill_of_lading": {
+              "field_name": "bl_number",
+              "value": "RKOE076"
+            },
+            "other_document": {
+              "field_name": "reference_number",
+              "value": "RKOE076"
+            }
+          }
+        },
+        {
+          "check_item": "seller_party_consistency",
+          "documents": {
+            "commercial_invoice": {
+              "field_name": "seller_name",
+              "value": "MITSUBISHI ELECTRIC CORPORATION"
+            },
+            "bill_of_lading": {
+              "field_name": "shipper_name",
+              "value": "MITSUBISHI ELECTRIC CORPORATION"
+            },
+            "packing_list": {
+              "field_name": "seller_name",
+              "value": "MITSUBISHI ELECTRIC CORPORATION"
+            },
+            "marine_cargo_insurance": {
+              "field_name": "insured_beneficiary_name",
+              "value": "MITSUBISHI ELECTRIC CORPORATION"
+            }
+          }
+        },
+        {
+          "check_item": "buyer_party_consistency",
+          "documents": {
+            "commercial_invoice": {
+              "field_name": "buyer_name",
+              "value": "Hyundai Rotem Company"
+            },
+            "bill_of_lading": {
+              "field_name": "consignee_name",
+              "value": "TO THE ORDER OF THE KOREA DEVELOPMENT BANK"
+            },
+            "packing_list": {
+              "field_name": "buyer_name",
+              "value": "Hyundai Rotem Company"
+            }
+          }
+        },
+        {
+          "check_item": "goods_description",
+          "documents": {
+            "commercial_invoice": {
+              "field_name": "line_items.product_name",
+              "value": "Static Converter /Battery Charger"
+            },
+            "bill_of_lading": {
+              "field_name": "cargo_details.cargo_description",
+              "value": "MAIN PROPULSION ELECTRICAL EQUIPMENT FOR DMRC RS10 486 CARS PROPULSION SYSTEMS"
+            },
+            "packing_list": {
+              "field_name": "line_items.product_name",
+              "value": "MAIN PROPULSION ELECTRICAL EQUIPMENT"
+            },
+            "marine_cargo_insurance": {
+              "field_name": "insured_goods_summary",
+              "value": "HYUNDAI ROTEM COMPANY MAIN PROPULSION ELECTRICAL EQUIPMENT FOR DMRC RS10 486 CARS PROPULSION SYSTEMS"
+            }
+          }
+        },
+        {
+          "check_item": "package_count_consistency",
+          "documents": {
+            "packing_list": {
+              "field_name": "total_package_count",
+              "value": "4"
+            },
+            "bill_of_lading": {
+              "field_name": "cargo_details.package_count",
+              "value": "4"
+            },
+            "marine_cargo_insurance": {
+              "field_name": "package_count",
+              "value": "4"
+            }
+          }
+        },
+        {
+          "check_item": "gross_weight_consistency",
+          "documents": {
+            "packing_list": {
+              "field_name": "total_gross_weight",
+              "value": "4756"
+            }
+          }
+        },
+        {
+          "check_item": "measurement_cbm_consistency",
+          "documents": {
+            "packing_list": {
+              "field_name": "total_measurement_cbm",
+              "value": "22.948"
+            },
+            "bill_of_lading": {
+              "field_name": "total_measurement_cbm",
+              "value": "22.948"
+            }
+          }
+        },
+        {
+          "check_item": "port_of_loading",
+          "documents": {
+            "commercial_invoice": {
+              "field_name": "port_of_loading",
+              "value": "Shimonoseki seaport, Japan"
+            },
+            "bill_of_lading": {
+              "field_name": "port_of_loading",
+              "value": "SHIMONOSEKI"
+            },
+            "packing_list": {
+              "field_name": "port_of_loading",
+              "value": "Shimonoseki seaport, Japan"
+            },
+            "marine_cargo_insurance": {
+              "field_name": "port_of_loading",
+              "value": "SHIMONOSEKI SEAPORT, JAPAN"
+            }
+          }
+        },
+        {
+          "check_item": "port_of_discharge",
+          "documents": {
+            "commercial_invoice": {
+              "field_name": "port_of_discharge",
+              "value": "Busan seaport, South Korea"
+            },
+            "bill_of_lading": {
+              "field_name": "port_of_discharge",
+              "value": "BUSAN SEAPORT, SOUTH KOREA"
+            },
+            "packing_list": {
+              "field_name": "port_of_discharge",
+              "value": "Busan seaport, South Korea"
+            },
+            "marine_cargo_insurance": {
+              "field_name": "port_of_discharge",
+              "value": "BUSAN SEAPORT, SOUTH KOREA"
+            }
+          }
+        },
+        {
+          "check_item": "payment_terms_consistency",
+          "documents": {
+            "commercial_invoice": {
+              "field_name": "payment_terms",
+              "value": "L/C at sight"
+            },
+            "packing_list": {
+              "field_name": "payment_terms",
+              "value": "L/C at sight"
+            }
+          }
+        },
+        {
+          "check_item": "freight_terms_consistency",
+          "documents": {
+            "bill_of_lading": {
+              "field_name": "freight_terms",
+              "value": "FREIGHT PREPAID / AS ARRANGED"
+            }
+          }
+        },
+        {
+          "check_item": "insurance_policy_issue_date_vs_shipment_date",
+          "documents": {
+            "marine_cargo_insurance": {
+              "field_name": "policy_issue_date",
+              "value": "2015-05-01"
+            },
+            "bill_of_lading": {
+              "field_name": "on_board_date",
+              "value": "2015-05-07"
+            }
+          }
+        },
+        {
+          "check_item": "date_flow_timeline",
+          "documents": {
+            "commercial_invoice": {
+              "field_name": "invoice_date",
+              "value": "2015-05-07"
+            },
+            "packing_list": {
+              "field_name": "packing_list_date",
+              "value": "2015-05-07"
+            },
+            "bill_of_lading": {
+              "field_name": "on_board_date",
+              "value": "2015-05-07"
+            },
+            "marine_cargo_insurance": {
+              "field_name": "policy_issue_date",
+              "value": "2015-05-01"
+            },
+            "other_document": {
+              "field_name": "document_date",
+              "value": "2015-05-18"
+            }
+          }
+        }
+      ],
+      "document_extract_evidence": {
+        "lc": {},
+        "commercial_invoice": {
+          "invoice_number": {
+            "field_name": "invoice_number",
+            "value": "A4631-L032-61"
+          },
+          "reference_number": {
+            "field_name": "reference_number",
+            "value": "R1320ERS-01"
+          },
+          "po_number": {
+            "field_name": "po_number",
+            "value": "R1320ERS-01"
+          },
+          "lc_number": {
+            "field_name": "lc_number",
+            "value": "M0201410ES04828"
+          },
+          "seller_name": {
+            "field_name": "seller_name",
+            "value": "MITSUBISHI ELECTRIC CORPORATION"
+          },
+          "buyer_name": {
+            "field_name": "buyer_name",
+            "value": "Hyundai Rotem Company"
+          },
+          "invoice_date": {
+            "field_name": "invoice_date",
+            "value": "2015-05-07"
+          },
+          "currency_code": {
+            "field_name": "currency_code",
+            "value": "JPY"
+          },
+          "total_amount": {
+            "field_name": "total_amount",
+            "value": "8941748"
+          },
+          "port_of_loading": {
+            "field_name": "port_of_loading",
+            "value": "Shimonoseki seaport, Japan"
+          },
+          "port_of_discharge": {
+            "field_name": "port_of_discharge",
+            "value": "Busan seaport, South Korea"
+          },
+          "payment_terms": {
+            "field_name": "payment_terms",
+            "value": "L/C at sight"
+          }
+        },
+        "bill_of_lading": {
+          "bl_number": {
+            "field_name": "bl_number",
+            "value": "RKOE076"
+          },
+          "po_number": {
+            "field_name": "po_number",
+            "value": "R1320ERS-01"
+          },
+          "lc_number": {
+            "field_name": "lc_number",
+            "value": "M0201410ES04828"
+          },
+          "shipper_name": {
+            "field_name": "shipper_name",
+            "value": "MITSUBISHI ELECTRIC CORPORATION"
+          },
+          "consignee_name": {
+            "field_name": "consignee_name",
+            "value": "TO THE ORDER OF THE KOREA DEVELOPMENT BANK"
+          },
+          "vessel_name": {
+            "field_name": "vessel_name",
+            "value": "SEONG HEE"
+          },
+          "port_of_loading": {
+            "field_name": "port_of_loading",
+            "value": "SHIMONOSEKI"
+          },
+          "port_of_discharge": {
+            "field_name": "port_of_discharge",
+            "value": "BUSAN SEAPORT, SOUTH KOREA"
+          },
+          "on_board_date": {
+            "field_name": "on_board_date",
+            "value": "2015-05-07"
+          },
+          "total_measurement_cbm": {
+            "field_name": "total_measurement_cbm",
+            "value": "22.948"
+          },
+          "freight_terms": {
+            "field_name": "freight_terms",
+            "value": "FREIGHT PREPAID / AS ARRANGED"
+          }
+        },
+        "packing_list": {
+          "packing_list_number": {
+            "field_name": "packing_list_number",
+            "value": "A4631-L032-61"
+          },
+          "reference_number": {
+            "field_name": "reference_number",
+            "value": "R1320ERS-01"
+          },
+          "po_number": {
+            "field_name": "po_number",
+            "value": "R1320ERS-01"
+          },
+          "lc_number": {
+            "field_name": "lc_number",
+            "value": "M0201410ES04828"
+          },
+          "seller_name": {
+            "field_name": "seller_name",
+            "value": "MITSUBISHI ELECTRIC CORPORATION"
+          },
+          "buyer_name": {
+            "field_name": "buyer_name",
+            "value": "Hyundai Rotem Company"
+          },
+          "packing_list_date": {
+            "field_name": "packing_list_date",
+            "value": "2015-05-07"
+          },
+          "total_package_count": {
+            "field_name": "total_package_count",
+            "value": "4"
+          },
+          "total_net_weight": {
+            "field_name": "total_net_weight",
+            "value": "3414"
+          },
+          "total_gross_weight": {
+            "field_name": "total_gross_weight",
+            "value": "4756"
+          },
+          "total_measurement_cbm": {
+            "field_name": "total_measurement_cbm",
+            "value": "22.948"
+          },
+          "port_of_loading": {
+            "field_name": "port_of_loading",
+            "value": "Shimonoseki seaport, Japan"
+          },
+          "port_of_discharge": {
+            "field_name": "port_of_discharge",
+            "value": "Busan seaport, South Korea"
+          },
+          "payment_terms": {
+            "field_name": "payment_terms",
+            "value": "L/C at sight"
+          }
+        },
+        "marine_cargo_insurance": {
+          "policy_certificate_number": {
+            "field_name": "policy_certificate_number",
+            "value": "15-H0065622"
+          },
+          "policy_issue_date": {
+            "field_name": "policy_issue_date",
+            "value": "2015-05-01"
+          },
+          "insured_beneficiary_name": {
+            "field_name": "insured_beneficiary_name",
+            "value": "MITSUBISHI ELECTRIC CORPORATION"
+          },
+          "lc_number": {
+            "field_name": "lc_number",
+            "value": "M0201410ES04828"
+          },
+          "invoice_number": {
+            "field_name": "invoice_number",
+            "value": "A4631-L032-61"
+          },
+          "vessel_name": {
+            "field_name": "vessel_name",
+            "value": "SEONG HEE"
+          },
+          "port_of_loading": {
+            "field_name": "port_of_loading",
+            "value": "SHIMONOSEKI SEAPORT, JAPAN"
+          },
+          "port_of_discharge": {
+            "field_name": "port_of_discharge",
+            "value": "BUSAN SEAPORT, SOUTH KOREA"
+          },
+          "insured_amount": {
+            "field_name": "insured_amount",
+            "value": "14521000"
+          },
+          "currency_code": {
+            "field_name": "currency_code",
+            "value": "JPY"
+          },
+          "package_count": {
+            "field_name": "package_count",
+            "value": "4"
+          },
+          "insured_goods_summary": {
+            "field_name": "insured_goods_summary",
+            "value": "HYUNDAI ROTEM COMPANY MAIN PROPULSION ELECTRICAL EQUIPMENT FOR DMRC RS10 486 CARS PROPULSION SYSTEMS"
+          }
+        },
+        "certificate_of_origin": {},
+        "other_document": {
+          "document_title": {
+            "field_name": "document_title",
+            "value": "선적서류 도착통지"
+          },
+          "reference_number": {
+            "field_name": "reference_number",
+            "value": "RKOE076"
+          },
+          "related_lc_number": {
+            "field_name": "related_lc_number",
+            "value": "M0201410ES04828-053"
+          },
+          "document_date": {
+            "field_name": "document_date",
+            "value": "2015-05-18"
+          },
+          "issuer_or_sender_name": {
+            "field_name": "issuer_or_sender_name",
+            "value": "KDB"
+          },
+          "receiver_or_beneficiary_name": {
+            "field_name": "receiver_or_beneficiary_name",
+            "value": "현대로템"
+          }
+        }
+      }
+    },
+    "human_summary": "현대로템 관련 서류 세트에서 상업송장, 패킹리스트, 선하증권, 보험증권, 도착통지서는 확인되었습니다. L/C 번호와 송장번호는 주요 문서 간 대체로 일치합니다. B/L 번호도 도착통지 문서와 선하증권 간 일치합니다. 선적항, 양하항, 지급조건도 확인 가능한 문서 간 대체로 일치합니다. 패킹리스트의 총중량과 CBM도 합계행 기준으로 확인 가능합니다. 보험증권 발행일은 2015-05-01이고 송장·패킹리스트·선하증권의 주요 선적 관련 날짜는 2015-05-07로 이어집니다. 다만 L/C 원본과 원산지증명서가 없어 최종 컴플라이언스 판단은 보수적으로 추가 검토가 필요합니다."
+  },
+  "check_results": [
+    {
+      "check_item": "file_presence",
+      "label": "서류 구비 현황",
+      "category": "presence",
+      "status": "missing",
+      "severity": "warning",
+      "message": "L/C 원본과 원산지증명서가 확인되지 않았습니다.",
+      "documents": {
+        "lc": {
+          "field_name": null,
+          "value": null,
+          "confidence": null,
+          "source": null
+        },
+        "commercial_invoice": {
+          "field_name": "document_type",
+          "value": "상업송장",
+          "confidence": 0.99,
+          "source": {
+            "page": 2,
+            "boxes": [
+              { "x": 0.10, "y": 0.08, "width": 0.12, "height": 0.03 }
+            ]
+          }
+        },
+        "bill_of_lading": {
+          "field_name": "document_type",
+          "value": "선하증권 B/L",
+          "confidence": 0.99,
+          "source": {
+            "page": 8,
+            "boxes": [
+              { "x": 0.10, "y": 0.08, "width": 0.18, "height": 0.03 }
+            ]
+          }
+        },
+        "packing_list": {
+          "field_name": "document_type",
+          "value": "패킹리스트",
+          "confidence": 0.99,
+          "source": {
+            "page": 4,
+            "boxes": [
+              { "x": 0.10, "y": 0.08, "width": 0.14, "height": 0.03 }
+            ]
+          }
+        },
+        "marine_cargo_insurance": {
+          "field_name": "document_type",
+          "value": "해상적하보험증권",
+          "confidence": 0.99,
+          "source": {
+            "page": 10,
+            "boxes": [
+              { "x": 0.10, "y": 0.08, "width": 0.24, "height": 0.03 }
+            ]
+          }
+        },
+        "certificate_of_origin": {
+          "field_name": null,
+          "value": null,
+          "confidence": null,
+          "source": null
+        }
+      }
+    },
+    {
+      "check_item": "lc_number_consistency",
+      "label": "L/C 번호 일치성",
+      "category": "consistency",
+      "status": "unclear",
+      "severity": "warning",
+      "message": "주요 문서의 L/C 번호는 대체로 일치하나 도착통지 문서에는 접미번호가 포함되어 있어 보수적 검토가 필요합니다.",
+      "documents": {
+        "commercial_invoice": {
+          "field_name": "lc_number",
+          "value": "M0201410ES04828",
+          "confidence": 0.96,
+          "source": {
+            "page": 2,
+            "boxes": [
+              { "x": 0.68, "y": 0.46, "width": 0.16, "height": 0.02 }
+            ]
+          }
+        },
+        "bill_of_lading": {
+          "field_name": "lc_number",
+          "value": "M0201410ES04828",
+          "confidence": 0.95,
+          "source": {
+            "page": 9,
+            "boxes": [
+              { "x": 0.62, "y": 0.34, "width": 0.16, "height": 0.02 }
+            ]
+          }
+        },
+        "packing_list": {
+          "field_name": "lc_number",
+          "value": "M0201410ES04828",
+          "confidence": 0.96,
+          "source": {
+            "page": 4,
+            "boxes": [
+              { "x": 0.67, "y": 0.46, "width": 0.16, "height": 0.02 }
+            ]
+          }
+        },
+        "marine_cargo_insurance": {
+          "field_name": "lc_number",
+          "value": "M0201410ES04828",
+          "confidence": 0.95,
+          "source": {
+            "page": 10,
+            "boxes": [
+              { "x": 0.42, "y": 0.47, "width": 0.16, "height": 0.02 }
+            ]
+          }
+        },
+        "other_document": {
+          "field_name": "related_lc_number",
+          "value": "M0201410ES04828-053",
+          "confidence": 0.95,
+          "source": {
+            "page": 1,
+            "boxes": [
+              { "x": 0.22, "y": 0.28, "width": 0.18, "height": 0.02 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check_item": "invoice_number_consistency",
+      "label": "송장 번호 일치성",
+      "category": "consistency",
+      "status": "match",
+      "severity": "info",
+      "message": "확인 가능한 문서 간 송장 번호가 일치합니다.",
+      "documents": {
+        "commercial_invoice": {
+          "field_name": "invoice_number",
+          "value": "A4631-L032-61",
+          "confidence": 0.98,
+          "source": {
+            "page": 2,
+            "boxes": [
+              { "x": 0.63, "y": 0.13, "width": 0.14, "height": 0.02 }
+            ]
+          }
+        },
+        "marine_cargo_insurance": {
+          "field_name": "invoice_number",
+          "value": "A4631-L032-61",
+          "confidence": 0.96,
+          "source": {
+            "page": 10,
+            "boxes": [
+              { "x": 0.34, "y": 0.11, "width": 0.18, "height": 0.03 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check_item": "bl_number_reference_consistency",
+      "label": "B/L 번호 일치성",
+      "category": "consistency",
+      "status": "match",
+      "severity": "info",
+      "message": "도착통지 문서와 선하증권의 B/L 번호가 일치합니다.",
+      "documents": {
+        "bill_of_lading": {
+          "field_name": "bl_number",
+          "value": "RKOE076",
+          "confidence": 0.98,
+          "source": {
+            "page": 8,
+            "boxes": [
+              { "x": 0.18, "y": 0.12, "width": 0.10, "height": 0.03 }
+            ]
+          }
+        },
+        "other_document": {
+          "field_name": "reference_number",
+          "value": "RKOE076",
+          "confidence": 0.95,
+          "source": {
+            "page": 1,
+            "boxes": [
+              { "x": 0.58, "y": 0.28, "width": 0.08, "height": 0.02 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check_item": "seller_party_consistency",
+      "label": "수출자/송하인 정보 일치성",
+      "category": "party",
+      "status": "match",
+      "severity": "info",
+      "message": "확인 가능한 문서 간 수출자/송하인 정보가 대체로 일치합니다.",
+      "documents": {
+        "commercial_invoice": {
+          "field_name": "seller_name",
+          "value": "MITSUBISHI ELECTRIC CORPORATION",
+          "confidence": 0.96,
+          "source": {
+            "page": 2,
+            "boxes": [
+              { "x": 0.18, "y": 0.13, "width": 0.28, "height": 0.02 }
+            ]
+          }
+        },
+        "bill_of_lading": {
+          "field_name": "shipper_name",
+          "value": "MITSUBISHI ELECTRIC CORPORATION",
+          "confidence": 0.94,
+          "source": {
+            "page": 8,
+            "boxes": [
+              { "x": 0.10, "y": 0.08, "width": 0.28, "height": 0.05 }
+            ]
+          }
+        },
+        "packing_list": {
+          "field_name": "seller_name",
+          "value": "MITSUBISHI ELECTRIC CORPORATION",
+          "confidence": 0.95,
+          "source": {
+            "page": 4,
+            "boxes": [
+              { "x": 0.10, "y": 0.12, "width": 0.30, "height": 0.02 }
+            ]
+          }
+        },
+        "marine_cargo_insurance": {
+          "field_name": "insured_beneficiary_name",
+          "value": "MITSUBISHI ELECTRIC CORPORATION",
+          "confidence": 0.95,
+          "source": {
+            "page": 10,
+            "boxes": [
+              { "x": 0.34, "y": 0.14, "width": 0.26, "height": 0.03 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check_item": "buyer_party_consistency",
+      "label": "수입자/수하인 정보 일치성",
+      "category": "party",
+      "status": "unclear",
+      "severity": "warning",
+      "message": "B/L 수하인이 은행 지시식으로 기재되어 있어 일반 매수인명과 직접 비교가 어렵습니다.",
+      "documents": {
+        "commercial_invoice": {
+          "field_name": "buyer_name",
+          "value": "Hyundai Rotem Company",
+          "confidence": 0.95,
+          "source": {
+            "page": 2,
+            "boxes": [
+              { "x": 0.10, "y": 0.24, "width": 0.22, "height": 0.03 }
+            ]
+          }
+        },
+        "bill_of_lading": {
+          "field_name": "consignee_name",
+          "value": "TO THE ORDER OF THE KOREA DEVELOPMENT BANK",
+          "confidence": 0.95,
+          "source": {
+            "page": 8,
+            "boxes": [
+              { "x": 0.10, "y": 0.16, "width": 0.34, "height": 0.05 }
+            ]
+          }
+        },
+        "packing_list": {
+          "field_name": "buyer_name",
+          "value": "Hyundai Rotem Company",
+          "confidence": 0.94,
+          "source": {
+            "page": 4,
+            "boxes": [
+              { "x": 0.10, "y": 0.24, "width": 0.22, "height": 0.03 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check_item": "goods_description",
+      "label": "물품 명세 일치성",
+      "category": "goods",
+      "status": "match",
+      "severity": "info",
+      "message": "확인 가능한 문서 간 물품 명세가 대체로 일치합니다.",
+      "documents": {
+        "commercial_invoice": {
+          "field_name": "line_items.product_name",
+          "value": "Static Converter /Battery Charger",
+          "confidence": 0.95,
+          "source": {
+            "page": 3,
+            "boxes": [
+              { "x": 0.24, "y": 0.18, "width": 0.24, "height": 0.02 }
+            ]
+          }
+        },
+        "bill_of_lading": {
+          "field_name": "cargo_details.cargo_description",
+          "value": "MAIN PROPULSION ELECTRICAL EQUIPMENT FOR DMRC RS10 486 CARS PROPULSION SYSTEMS",
+          "confidence": 0.90,
+          "source": {
+            "page": 9,
+            "boxes": [
+              { "x": 0.10, "y": 0.12, "width": 0.52, "height": 0.10 }
+            ]
+          }
+        },
+        "packing_list": {
+          "field_name": "line_items.product_name",
+          "value": "MAIN PROPULSION ELECTRICAL EQUIPMENT",
+          "confidence": 0.90,
+          "source": {
+            "page": 5,
+            "boxes": [
+              { "x": 0.28, "y": 0.18, "width": 0.16, "height": 0.02 }
+            ]
+          }
+        },
+        "marine_cargo_insurance": {
+          "field_name": "insured_goods_summary",
+          "value": "HYUNDAI ROTEM COMPANY MAIN PROPULSION ELECTRICAL EQUIPMENT FOR DMRC RS10 486 CARS PROPULSION SYSTEMS",
+          "confidence": 0.90,
+          "source": {
+            "page": 10,
+            "boxes": [
+              { "x": 0.18, "y": 0.58, "width": 0.46, "height": 0.10 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check_item": "package_count_consistency",
+      "label": "포장 수량 일치성",
+      "category": "quantity",
+      "status": "match",
+      "severity": "info",
+      "message": "확인 가능한 문서 간 포장 수량이 대체로 일치합니다.",
+      "documents": {
+        "packing_list": {
+          "field_name": "total_package_count",
+          "value": "4",
+          "confidence": 0.93,
+          "source": {
+            "page": 5,
+            "boxes": [
+              { "x": 0.18, "y": 0.79, "width": 0.08, "height": 0.02 }
+            ]
+          }
+        },
+        "bill_of_lading": {
+          "field_name": "cargo_details.package_count",
+          "value": "4",
+          "confidence": 0.80,
+          "source": {
+            "page": 8,
+            "boxes": [
+              { "x": 0.56, "y": 0.58, "width": 0.10, "height": 0.02 }
+            ]
+          }
+        },
+        "marine_cargo_insurance": {
+          "field_name": "package_count",
+          "value": "4",
+          "confidence": 0.85,
+          "source": {
+            "page": 10,
+            "boxes": [
+              { "x": 0.62, "y": 0.47, "width": 0.08, "height": 0.02 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check_item": "gross_weight_consistency",
+      "label": "총중량 일치성",
+      "category": "quantity",
+      "status": "match",
+      "severity": "info",
+      "message": "확인 가능한 총중량 값은 큰 불일치 없이 해석됩니다.",
+      "documents": {
+        "packing_list": {
+          "field_name": "total_gross_weight",
+          "value": "4756",
+          "confidence": 0.94,
+          "source": {
+            "page": 5,
+            "boxes": [
+              { "x": 0.53, "y": 0.79, "width": 0.08, "height": 0.02 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check_item": "measurement_cbm_consistency",
+      "label": "CBM 일치성",
+      "category": "quantity",
+      "status": "match",
+      "severity": "info",
+      "message": "패킹리스트와 선하증권의 CBM 값이 일치합니다.",
+      "documents": {
+        "packing_list": {
+          "field_name": "total_measurement_cbm",
+          "value": "22.948",
+          "confidence": 0.94,
+          "source": {
+            "page": 5,
+            "boxes": [
+              { "x": 0.62, "y": 0.79, "width": 0.08, "height": 0.02 }
+            ]
+          }
+        },
+        "bill_of_lading": {
+          "field_name": "total_measurement_cbm",
+          "value": "22.948",
+          "confidence": 0.88,
+          "source": {
+            "page": 9,
+            "boxes": [
+              { "x": 0.62, "y": 0.22, "width": 0.08, "height": 0.02 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check_item": "port_of_loading",
+      "label": "선적항 일치성",
+      "category": "shipping",
+      "status": "match",
+      "severity": "info",
+      "message": "확인 가능한 문서 간 선적항 정보가 일치합니다.",
+      "documents": {
+        "commercial_invoice": {
+          "field_name": "port_of_loading",
+          "value": "Shimonoseki seaport, Japan",
+          "confidence": 0.90,
+          "source": {
+            "page": 2,
+            "boxes": [
+              { "x": 0.10, "y": 0.31, "width": 0.22, "height": 0.02 }
+            ]
+          }
+        },
+        "bill_of_lading": {
+          "field_name": "port_of_loading",
+          "value": "SHIMONOSEKI",
+          "confidence": 0.94,
+          "source": {
+            "page": 8,
+            "boxes": [
+              { "x": 0.49, "y": 0.26, "width": 0.12, "height": 0.03 }
+            ]
+          }
+        },
+        "packing_list": {
+          "field_name": "port_of_loading",
+          "value": "Shimonoseki seaport, Japan",
+          "confidence": 0.88,
+          "source": {
+            "page": 4,
+            "boxes": [
+              { "x": 0.10, "y": 0.31, "width": 0.22, "height": 0.02 }
+            ]
+          }
+        },
+        "marine_cargo_insurance": {
+          "field_name": "port_of_loading",
+          "value": "SHIMONOSEKI SEAPORT, JAPAN",
+          "confidence": 0.94,
+          "source": {
+            "page": 10,
+            "boxes": [
+              { "x": 0.52, "y": 0.52, "width": 0.22, "height": 0.02 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check_item": "port_of_discharge",
+      "label": "양하항 일치성",
+      "category": "shipping",
+      "status": "match",
+      "severity": "info",
+      "message": "확인 가능한 문서 간 양하항 정보가 일치합니다.",
+      "documents": {
+        "commercial_invoice": {
+          "field_name": "port_of_discharge",
+          "value": "Busan seaport, South Korea",
+          "confidence": 0.90,
+          "source": {
+            "page": 2,
+            "boxes": [
+              { "x": 0.10, "y": 0.35, "width": 0.20, "height": 0.02 }
+            ]
+          }
+        },
+        "bill_of_lading": {
+          "field_name": "port_of_discharge",
+          "value": "BUSAN SEAPORT, SOUTH KOREA",
+          "confidence": 0.95,
+          "source": {
+            "page": 8,
+            "boxes": [
+              { "x": 0.52, "y": 0.39, "width": 0.24, "height": 0.02 }
+            ]
+          }
+        },
+        "packing_list": {
+          "field_name": "port_of_discharge",
+          "value": "Busan seaport, South Korea",
+          "confidence": 0.88,
+          "source": {
+            "page": 4,
+            "boxes": [
+              { "x": 0.10, "y": 0.35, "width": 0.20, "height": 0.02 }
+            ]
+          }
+        },
+        "marine_cargo_insurance": {
+          "field_name": "port_of_discharge",
+          "value": "BUSAN SEAPORT, SOUTH KOREA",
+          "confidence": 0.94,
+          "source": {
+            "page": 10,
+            "boxes": [
+              { "x": 0.20, "y": 0.56, "width": 0.24, "height": 0.02 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check_item": "payment_terms_consistency",
+      "label": "지급조건 일치성",
+      "category": "terms",
+      "status": "match",
+      "severity": "info",
+      "message": "상업송장과 패킹리스트의 지급조건이 일치합니다.",
+      "documents": {
+        "commercial_invoice": {
+          "field_name": "payment_terms",
+          "value": "L/C at sight",
+          "confidence": 0.92,
+          "source": {
+            "page": 2,
+            "boxes": [
+              { "x": 0.71, "y": 0.28, "width": 0.14, "height": 0.02 }
+            ]
+          }
+        },
+        "packing_list": {
+          "field_name": "payment_terms",
+          "value": "L/C at sight",
+          "confidence": 0.92,
+          "source": {
+            "page": 4,
+            "boxes": [
+              { "x": 0.52, "y": 0.28, "width": 0.12, "height": 0.02 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check_item": "freight_terms_consistency",
+      "label": "운임조건 일치성",
+      "category": "terms",
+      "status": "unclear",
+      "severity": "warning",
+      "message": "선하증권의 운임조건은 확인되나 다른 문서와의 직접 비교 근거는 제한적입니다.",
+      "documents": {
+        "bill_of_lading": {
+          "field_name": "freight_terms",
+          "value": "FREIGHT PREPAID / AS ARRANGED",
+          "confidence": 0.90,
+          "source": {
+            "page": 8,
+            "boxes": [
+              { "x": 0.58, "y": 0.58, "width": 0.24, "height": 0.03 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check_item": "insurance_policy_issue_date_vs_shipment_date",
+      "label": "보험증권 발행일 vs 선적일",
+      "category": "date",
+      "status": "match",
+      "severity": "info",
+      "message": "보험증권 발행일이 선적 관련 일자보다 앞서 있습니다.",
+      "documents": {
+        "marine_cargo_insurance": {
+          "field_name": "policy_issue_date",
+          "value": "2015-05-01",
+          "confidence": 0.96,
+          "source": {
+            "page": 10,
+            "boxes": [
+              { "x": 0.44, "y": 0.66, "width": 0.16, "height": 0.02 }
+            ]
+          }
+        },
+        "bill_of_lading": {
+          "field_name": "on_board_date",
+          "value": "2015-05-07",
+          "confidence": 0.95,
+          "source": {
+            "page": 8,
+            "boxes": [
+              { "x": 0.63, "y": 0.82, "width": 0.10, "height": 0.02 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "check_item": "date_flow_timeline",
+      "label": "문서 간 날짜 흐름",
+      "category": "date",
+      "status": "unclear",
+      "severity": "warning",
+      "message": "확인 가능한 날짜 흐름은 자연스럽지만 L/C 기준 날짜가 없어 최종 확정은 어렵습니다.",
+      "documents": {
+        "commercial_invoice": {
+          "field_name": "invoice_date",
+          "value": "2015-05-07",
+          "confidence": 0.98,
+          "source": {
+            "page": 2,
+            "boxes": [
+              { "x": 0.78, "y": 0.13, "width": 0.10, "height": 0.02 }
+            ]
+          }
+        },
+        "packing_list": {
+          "field_name": "packing_list_date",
+          "value": "2015-05-07",
+          "confidence": 0.98,
+          "source": {
+            "page": 4,
+            "boxes": [
+              { "x": 0.78, "y": 0.13, "width": 0.10, "height": 0.02 }
+            ]
+          }
+        },
+        "bill_of_lading": {
+          "field_name": "on_board_date",
+          "value": "2015-05-07",
+          "confidence": 0.95,
+          "source": {
+            "page": 8,
+            "boxes": [
+              { "x": 0.63, "y": 0.82, "width": 0.10, "height": 0.02 }
+            ]
+          }
+        },
+        "marine_cargo_insurance": {
+          "field_name": "policy_issue_date",
+          "value": "2015-05-01",
+          "confidence": 0.96,
+          "source": {
+            "page": 10,
+            "boxes": [
+              { "x": 0.44, "y": 0.66, "width": 0.16, "height": 0.02 }
+            ]
+          }
+        },
+        "other_document": {
+          "field_name": "document_date",
+          "value": "2015-05-18",
+          "confidence": 0.97,
+          "source": {
+            "page": 1,
+            "boxes": [
+              { "x": 0.40, "y": 0.14, "width": 0.12, "height": 0.02 }
+            ]
+          }
+        }
+      }
     }
   ]
 }
